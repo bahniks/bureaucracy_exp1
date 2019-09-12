@@ -1,0 +1,379 @@
+#! python3
+from tkinter import *
+from tkinter import ttk
+from collections import deque
+from time import time, perf_counter
+
+import random
+import os
+
+from common import ExperimentFrame, InstructionsFrame
+from gui import GUI
+
+
+
+dishonestyintro = """
+V následující úloze máte možnost získat peníze navíc pro sebe a pro charitativní organizaci Člověk v tísni. Svým jednáním v úloze můžete pro sebe a pro charitu získávat nebo ztrácet body, jež se na konci experimentu převedou na peníze dle kurzu 10 bodů = 1 Kč.
+
+--Ovládání--
+Vaším úkolem bude třídit obrázky objevující se na obrazovce. Obrázky mohou mít tvar kruhu, trojuhelníku nebo čtverce a modrou, oranžovou nebo žlutou barvu.
+
+Každý obrázek lze stisknutím klávesy 1, 2 a 3 na numerické klávesnici zatřídit k jedné barvě a k jednomu tvaru. Jaká barva a jaký tvar jsou právě spojeny s klávesami 1, 2 a 3 můžete videt v dolní části obrazovky. Například teď v dolním řádku vidíte, že s klávesou 1 je nyní spojena oranžová barva a trojúhelníkový tvar. Pokud by se teď na obrazovce objevil obrázek a Vy byste stiskl(a) klávesu 1, zatřídíte tento obrázek k oranžové barvě a trojuhelníkovému tvaru.
+
+Během úlohy bude v dolní části obrazovky vždy vidět, jaká barva a jaký tvar jsou právě spojeny s klávesami 1, 2 a 3. Pozor – po zatřídění každého obrázku se spojení barev a kláves změní, musíte je proto pozorně sledovat.
+
+--Získávání bodů--
+Výše příspěvku, který PLESS odvede na charitu, závisí na tom, zda budete obrázky třídit dle BARVY. Příspěvek má na začátku hodnotu 2000 bodů. Pokud obrázek zatřídíte k jiné barvě, než je barva obrázku, příspěvek se sníží o 200 bodů. Pokud obrázek zatřídíte ke stejné barvě, výše příspěvku pro charitu se nezmění. 
+(Je možné se dostat i do záporných hodnot – o zápornou sumu se v takovém případě sníží celkový příspěvek věnovaný na charitu za všechny účastníky studie.)
+
+Vaše odměna je na začátku 0 bodů. Za každý zatříděný obrázek získáte 3 body, bez ohledu na to k jaké barvě nebo tvaru ho zatřídíte. Pouze pokud obrázek nezatřídíte nijak (tj. nestisknete žádnou klávesu), nezískate za něj žádné body.
+
+Během úlohy můžete svoji odměnu ještě dále zvýšit, pokud budete někdy ignorovat pravidlo o zařazování dle BARVY a některé obrázky místo toho zatřídíte dle TVARU. Pokud obrázek s vepsaným číslem zatřídíte dle TVARU, získáte pro sebe navíc počet bodů odpovídající vepsanému číslu.
+Zatřídění dle BARVY a dle TVARU se někdy neliší - například oranžový trojúhelník teď klávesou 1 zatřídíte k odpovídající barvě i odpovídajícímu tvaru.
+V jiných případech se ale zatřídění dle BARVY a dle TVARU může lišit: pokud budete chtít v takovém případě získat pro sebe body navíc a zatřídíte obrázek ke špatné barvě, příspěvek na charitu se sníží o 200 bodů. Samozřejme můžete body navíc ignorovat a obrázek zatřídit k odpovídající barvě.
+
+Po kliknutí na Pokračovat uvidíte, jak bude vypadat obrazovka během úlohy.
+"""
+
+screenintro1 = """Níže vidíte, jak vypadá obrazovka v průběhu úkolu spolu s popisky jednotlivých prvků.
+Až si obrázek prohlédnete, klikněte na Pokračovat."""
+screenintro2 = """Níže vidíte, co se stane, když žlutý čtverec, jenž jste viděli dříve, zatřídíte dle TVARU. 
+Až si obrázek prohlédnete, klikněte na Pokračovat.
+"""
+screenintro3 = """Níže vidíte, co se stane, když žlutý čtverec, jenž jste viděli dříve, zatřídíte dle BARVY. 
+Až si obrázek prohlédnete, klikněte na Pokračovat.
+"""
+
+dishonestyrecap = """
+--Získávání bodů (zopakování)-- 
+Výše příspěvku, který PLESS odvede na charitu, závisí na tom, zda budete obrázky třídit dle BARVY. Příspěvek má na začátku hodnotu 2000 bodů. Pokud obrázek zatřídíte k jiné barvě, než je barva obrázku, příspěvek se sníží o 200 bodů. Pokud obrázek zatřídíte ke stejné barvě, výše příspěvku pro charitu se nezmění. 
+(Je možné se dostat i do záporných hodnot.)
+
+Vaše odměna je na začátku 0 bodů. Za každý zatříděný obrázek získáte 3 body, bez ohledu na to k jaké barvě nebo tvaru ho zatřídíte. 
+
+Během úlohy můžete svoji odměnu ještě dále zvýšit, pokud budete někdy ignorovat pravidlo o zařazování dle BARVY a některé obrázky místo toho zatřídíte dle TVARU. Pokud obrázek s vepsaným číslem zatřídíte dle TVARU, získáte pro sebe navíc počet bodů odpovídající vepsanému číslu.
+Zatřídění dle BARVY a dle TVARU se někdy může lišit: pokud budete chtít v takovém případě získat pro sebe body navíc a zatřídíte obrázek ke špatné barvě, příspěvek na charitu se sníží o 200 bodů. Samozřejme můžete body navíc ignorovat a obrázek zatřídit k odpovídající barvě.
+---------------------------------------------------------------------------------
+--Závěrečné informace--
+Po absolvování všech zbývajících úloh v dnešní studii proběhne na počítači losování. Pokud budete vylosován(a), body, jež v této třídící úloze získáte pro sebe a pro charitu Člověk v tísni, se převedou na peníze kurzem 10 bodů = 1 Kč a budou vyplaceny. Šance na vylosování je 1:13.
+Vaše odměna Vám bude vyplacena po skončení dnešní studie. Peníze pro charitu Člověk v tísni budou po skončení sběru dat převedeny na účet 76327632/0300 (převod peněz pro charitu garantuje vedoucí katedry psychologie doc. Gillernová). 
+
+Poté, co si budete jisti, že instrukcím rozumíte, klikněte na Pokračovat a ukazováček, prostředníček a prsteníček položte na klávesy 1, 2 a 3 na numerické klávesnici.
+Pozor, po kliknutí na Pokračovat úloha hned začne a na zatřídění každého obrázku máte jen několik vteřin - kým obrázek neopustí obrazovku. 
+"""
+
+
+class ScreenshotInstructions(InstructionsFrame):
+    def __init__(self, root, picture, text = ""):
+        super().__init__(root, text = text, height = 2)
+
+        self.image = PhotoImage(file = os.path.join(os.getcwd(), "Stuff", picture))
+
+        self.screenshot = Canvas(self, background = "white", highlightbackground = "black",
+                                 highlightcolor = "white", width = self.image.width(),
+                                 height = self.image.height())
+        self.screenshot.grid(row = 2, column = 0, columnspan = 3)
+
+        self.screenshot.create_image(0, 0, image = self.image, anchor = NW)
+
+        self.next.grid(row = 3, column = 1)
+
+
+
+DishonestyInstructions2 = (ScreenshotInstructions, {"picture": "screen1.gif",
+                                                    "text": screenintro1})
+DishonestyInstructions3 = (ScreenshotInstructions, {"picture": "screen2.gif",
+                                                    "text": screenintro2})
+DishonestyInstructions4 = (ScreenshotInstructions, {"picture": "screen3.gif",
+                                                    "text": screenintro3})
+DishonestyInstructions5 = (InstructionsFrame, {"text": dishonestyrecap, "height": 32, "font": 14,
+                                               "width": 100})
+
+        
+
+
+class DishonestyInstructions(InstructionsFrame):
+    def __init__(self, root):
+        super().__init__(root, text = dishonestyintro, height = 32, font = 12, width = 125)
+
+        self.width = self.root.screenwidth
+        self.size = int(self.width / 35)
+        self.colors = ["orange", "sky blue", "yellow"]
+        self.shapes = ["triangle", "square", "circle"]
+        
+        self.down = Canvas(self, background = "white", highlightbackground = "white",
+                           highlightcolor = "white", width = self.width, height = 150)
+        self.down.grid(row = 3, column = 0, sticky = (E, W), columnspan = 3)
+
+        self.createPots()
+        
+    def createPots(self):
+        self.pots = []
+        for i in range(3):
+            color = self.colors[i]
+            s = ((i*2 + 1) * int(self.width)) / 6
+            x0, x1, x2 = s - self.size, s, s + self.size
+            y0 = 10
+            y1 = y0 + 2*self.size
+            if self.shapes[i] == "triangle":
+                idnum = self.down.create_polygon((x0, y1, x2, y1, x1, y0), fill = color,
+                                                 outline = color)
+            elif self.shapes[i] == "square":
+                idnum = self.down.create_rectangle((x0, y0, x2, y1), fill = color, outline = color)
+            elif self.shapes[i] == "circle":
+                idnum = self.down.create_oval((x0, y0, x2, y1), fill = color, outline = color)
+            self.down.create_text((x1, y1+40), text = str(i+1), font = "helvetica 25")
+
+
+            
+
+class Dishonesty(ExperimentFrame):
+    def __init__(self, root, practice = False):
+        super().__init__(root)
+
+        #######################
+        # adjustable parameters
+        self.maxObjects = 100 # adjust for testing
+        self.charityBeginning = 2000
+        self.spacingTime = 2.5
+        self.speed = 500
+        self.bribes1 = [100, 110, 130, 150, 170, 190, 200, 300]
+        self.bribes2 = [10, 30, 50, 80, 170, 190, 200, 300]
+        self.bribeProbability = 0.2
+        self.sortReward = 3
+        self.wrongPenalty = 200
+        #######################
+
+        self.bribesgroup = random.choice(["first", "second"])
+        self.bribes = self.bribes1 if self.bribesgroup == "first" else self.bribes2
+
+        self.width = self.root.screenwidth
+        self.height = self.root.screenheight
+        self.size = int(self.width / 18)
+
+        self.file.write("Dishonesty\n")
+
+        self["highlightbackground"] = "white"
+
+        self.middle = Canvas(self, background = "white", highlightbackground = "white",
+                             highlightcolor = "white", width = self.width)
+        self.middle.grid(row = 1, column = 0, sticky = (E, W, S, W), columnspan = 2)
+
+        self.down = Canvas(self, background = "white", highlightbackground = "white",
+                           highlightcolor = "white", width = self.width, height = 250)
+        self.down.grid(row = 3, column = 0, sticky = (E, W), columnspan = 2)
+
+        self.charityVar = StringVar()
+        self.rewardVar = StringVar()
+        self.numberVar = StringVar()
+
+        self.charityText = "Charitě: {}"
+        self.rewardText = "Odměna: {}"
+        self.numberText = "{}/" + str(self.maxObjects)
+
+        self.charity = ttk.Label(self, textvariable = self.charityVar, font = "helvetica 30",
+                                 background = "white")
+        self.reward = ttk.Label(self, textvariable = self.rewardVar, font = "helvetica 30",
+                                background = "white")
+        self.number = ttk.Label(self, textvariable = self.numberVar, font = "helvetica 30",
+                                background = "white")
+
+        self.charity.grid(row = 0, column = 1, pady = 20, padx = 20)
+        self.reward.grid(row = 2, column = 1, pady = 20, padx = 20)
+        self.number.grid(row = 0, column = 0, pady = 20)
+        
+        self.objects = deque()
+        self.shapes = ["triangle", "square", "circle"]
+        random.shuffle(self.shapes)
+        self.colors = ["orange", "sky blue", "yellow"]
+        random.shuffle(self.colors)
+        self.infos = {}
+        self.rewardObjects = {}
+        self.charityTotal = self.charityBeginning
+        self.rewardTotal = 0
+        self.responses = []
+        self.responsesTotal = 0
+
+        self.charityVar.set(self.charityText.format(self.charityTotal))
+        self.rewardVar.set(self.rewardText.format(self.rewardTotal))
+        self.numberVar.set(self.numberText.format(self.responsesTotal))
+
+        self.createPots()
+
+        self.columnconfigure(0, weight = 1)
+        self.rowconfigure(1, weight = 1)
+        
+        self.root.bind("1", lambda e: self.response(1))
+        self.root.bind("2", lambda e: self.response(2))
+        self.root.bind("3", lambda e: self.response(3))
+
+        self.time = perf_counter()
+
+
+    def response(self, number):
+        t = perf_counter()
+
+        if not self.objects:
+            return
+               
+        idnum = self.objects.popleft()
+        self.rewardTotal += self.sortReward
+
+        if idnum in self.rewardObjects:
+            self.middle.delete(self.rewardObjects[idnum])
+        self.middle.delete(idnum)
+        shape, color, bribe, _ = self.infos[idnum]
+        if shape == self.shapes[number-1]:
+            self.rewardTotal += bribe
+            shapeRight = 1
+        else:
+            shapeRight = 0
+        if color != self.colors[number-1]:
+            self.charityTotal -= self.wrongPenalty
+            colorRight = 0
+        else:
+            colorRight = 1
+
+        self.charityVar.set(self.charityText.format(self.charityTotal))
+        self.rewardVar.set(self.rewardText.format(self.rewardTotal))
+
+        self.responsesTotal += 1
+        self.numberVar.set(self.numberText.format(self.responsesTotal))
+
+        timeScreen = t - self.infos[idnum][3]
+        timePrevious = t - self.time
+        responseColor = self.colors[number-1]
+        responseShape = self.shapes[number-1]
+
+        self.responses.append([timeScreen, timePrevious, shape, color, bribe, responseShape,
+                               responseColor, shapeRight, colorRight, self.charityTotal,
+                               self.rewardTotal, number] + self.colors + self.shapes)
+
+        self.changePotsColors()
+        self.time = perf_counter()
+        
+
+    def run(self):
+        self.root.config(cursor = "none")
+        t0 = perf_counter()
+        objects = 0
+        toNext = 0
+        spacing = self.spacingTime
+        maxObjects = self.maxObjects
+        speed = self.speed
+        while True:
+            t1 = perf_counter()
+            dif = t1 - t0
+            self.move(dif * speed)
+            self.root.update()
+            toNext += dif
+            if toNext > spacing and objects < maxObjects:
+                self.createObject()
+                toNext -= spacing
+                objects += 1
+            t0 = t1
+            if objects == maxObjects:
+                if not self.objects:
+                    self.root.config(cursor = "arrow")
+                    break
+        self.root.reward = self.rewardTotal
+        self.root.charity = self.charityTotal
+        self.nextFun()
+
+
+    def createPots(self):
+        self.pots = []
+        for i in range(3):
+            color = self.colors[i]
+            s = ((i*2 + 1) * int(self.width)) / 6
+            x0, x1, x2 = s - self.size, s, s + self.size
+            y0 = 10
+            y1 = y0 + 2*self.size
+            if self.shapes[i] == "triangle":
+                idnum = self.down.create_polygon((x0, y1, x2, y1, x1, y0), fill = color,
+                                                 outline = color)
+            elif self.shapes[i] == "square":
+                idnum = self.down.create_rectangle((x0, y0, x2, y1), fill = color, outline = color)
+            elif self.shapes[i] == "circle":
+                idnum = self.down.create_oval((x0, y0, x2, y1), fill = color, outline = color)
+            self.pots.append(idnum)
+            self.down.create_text((x1, y1+40), text = str(i+1), font = "helvetica 35")
+
+
+    def changePotsColors(self):
+        random.shuffle(self.colors)
+        for i in range(3):
+            self.down.itemconfigure(self.pots[i], fill = self.colors[i], outline = self.colors[i])
+            
+        
+    def createObject(self):
+        shape = random.choice(self.shapes)
+        color = random.choice(self.colors)
+        reward = 0 if random.random() > self.bribeProbability else random.choice(self.bribes)
+        x0, x1, x2 = -self.size*2, 0-self.size, 0
+        y0 = 10
+        y1, y2 = y0 + self.size, y0 + 2*self.size
+        if shape == "triangle":
+            idnum = self.middle.create_polygon((x0, y2, x2, y2, x1, y0), fill = color,
+                                               outline = color)
+        elif shape == "square":
+            idnum = self.middle.create_rectangle((x0, y0, x2, y2), fill = color, outline = color)
+        elif shape == "circle":
+            idnum = self.middle.create_oval((x0, y0, x2, y2), fill = color, outline = color)
+        if reward:
+            self.rewardObjects[idnum] = self.middle.create_text((x1, y1), text = str(reward),
+                                                                font = "helvetica 30")
+        self.objects.append(idnum)
+        self.infos[idnum] = (shape, color, reward, perf_counter())
+
+
+    def move(self, x):
+        remove = ""
+        for obj in self.objects:
+            coordinates = self.middle.coords(obj)
+            if len(coordinates) == 4:
+                x1, y1, x2, y2 = coordinates
+                self.middle.coords(obj, (x1+x, y1, x2+x, y2))
+            else:
+                x1, y1, x2, y2, x3, y3 = coordinates
+                self.middle.coords(obj, (x1+x, y1, x2+x, y2, x3+x, y3))
+            if x1 > self.width:
+                remove = obj
+            if obj in self.rewardObjects:
+                robj = self.rewardObjects[obj]
+                xr, yr = self.middle.coords(robj)
+                self.middle.coords(robj, (xr+x, yr))
+        if remove:
+            t = perf_counter()
+            self.objects.remove(remove)
+            self.middle.delete(remove)
+            if remove in self.rewardObjects:
+                self.middle.delete(self.rewardObjects[remove])
+            timeScreen = t - self.infos[remove][3]
+            timePrevious = t - self.time
+            shape, color, bribe, _ = self.infos[remove]
+            responseColor = responseShape = "NA"
+            colorRight = shapeRight = 0
+            self.responsesTotal += 1
+            self.numberVar.set(self.numberText.format(self.responsesTotal))
+            self.responses.append([timeScreen, timePrevious, shape, color, bribe, responseShape,
+                                   responseColor, shapeRight, colorRight, self.charityTotal,
+                                   self.rewardTotal, "NA"] + self.colors + self.shapes)
+
+            
+    def write(self):
+        for order, line in enumerate(self.responses, 1):
+            begin = [self.id, self.bribesgroup, order]
+            end = [self.charityTotal, self.rewardTotal]
+            self.file.write("\t".join(map(str, begin + line + end)) + "\n")
+
+
+if __name__ == "__main__":
+    os.chdir(os.path.dirname(os.getcwd()))
+    GUI([DishonestyInstructions,
+         DishonestyInstructions2,
+         DishonestyInstructions3,
+         DishonestyInstructions4,
+         DishonestyInstructions5,
+         Dishonesty])
+
