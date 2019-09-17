@@ -12,6 +12,26 @@ from gui import GUI
 
 
 
+group = random.sample([(0.01, 40), (0.01, 400), (0.01, "end"),
+                       (0.05, 40), (0.05, 400), (0.05, "end"),
+                       (0.25, 40), (0.25, 400), (0.25, "end"),
+                       (0, "control")], 1)
+group = group[0]
+probability = group[0]
+punishment = group[1]
+
+if punishment == "end":
+    size = "úloha bude ukončena a Vám i charitě zůstanou Vaše stávající bodová odměna."
+else:
+    size = "ztratíte {} bodů ze své odměny".format(punishment)
+
+punishmentInstructions = "V tomto případně budete mít nicméně šanci {}%, že body navíc neobdržíte a {}.".format(probability*100, size) if punishment != "control" else ""
+
+punishmentText = "Obrázek jste zatřídili spatně!" # upravit
+
+
+
+
 dishonestyintro = """
 V následující úloze máte možnost získat peníze navíc pro sebe a pro charitativní organizaci Člověk v tísni. Svým jednáním v úloze můžete pro sebe a pro charitu získávat nebo ztrácet body, jež se na konci experimentu převedou na peníze dle kurzu 10 bodů = 1 Kč.
 
@@ -37,6 +57,7 @@ Po kliknutí na Pokračovat uvidíte, jak bude vypadat obrazovka během úlohy.
 
 screenintro1 = """Níže vidíte, jak vypadá obrazovka v průběhu úkolu spolu s popisky jednotlivých prvků.
 Až si obrázek prohlédnete, klikněte na Pokračovat."""
+
 screenintro2 = """Níže vidíte, co se stane, když žlutý čtverec, jenž jste viděli dříve, zatřídíte dle TVARU. 
 Až si obrázek prohlédnete, klikněte na Pokračovat.
 """
@@ -133,19 +154,15 @@ class Dishonesty(ExperimentFrame):
 
         #######################
         # adjustable parameters
-        self.maxObjects = 100 # adjust for testing
+        self.maxObjects = 200 # adjust for testing
         self.charityBeginning = 2000
         self.spacingTime = 2.5
         self.speed = 500
-        self.bribes1 = [100, 110, 130, 150, 170, 190, 200, 300]
-        self.bribes2 = [10, 30, 50, 80, 170, 190, 200, 300]
+        self.bribes = [i*10 for i in range(4, 19)]
         self.bribeProbability = 0.2
         self.sortReward = 3
         self.wrongPenalty = 200
         #######################
-
-        self.bribesgroup = random.choice(["first", "second"])
-        self.bribes = self.bribes1 if self.bribesgroup == "first" else self.bribes2
 
         self.width = self.root.screenwidth
         self.height = self.root.screenheight
@@ -245,6 +262,9 @@ class Dishonesty(ExperimentFrame):
         responseColor = self.colors[number-1]
         responseShape = self.shapes[number-1]
 
+        if shapeRight and not colorRight and random.random() < probability:
+            self.middle.create_text((self.width/2, 125), text = punishmentText, font = "helvetica 30") #
+            
         self.responses.append([timeScreen, timePrevious, shape, color, bribe, responseShape,
                                responseColor, shapeRight, colorRight, self.charityTotal,
                                self.rewardTotal, number] + self.colors + self.shapes)
@@ -258,21 +278,18 @@ class Dishonesty(ExperimentFrame):
         t0 = perf_counter()
         objects = 0
         toNext = 0
-        spacing = self.spacingTime
-        maxObjects = self.maxObjects
-        speed = self.speed
         while True:
             t1 = perf_counter()
             dif = t1 - t0
-            self.move(dif * speed)
+            self.move(dif * self.speed)
             self.root.update()
             toNext += dif
-            if toNext > spacing and objects < maxObjects:
+            if toNext > self.spacingTime and objects < self.maxObjects:
                 self.createObject()
-                toNext -= spacing
+                toNext -= self.spacingTime
                 objects += 1
             t0 = t1
-            if objects == maxObjects:
+            if objects == self.maxObjects:
                 if not self.objects:
                     self.root.config(cursor = "arrow")
                     break
@@ -309,7 +326,8 @@ class Dishonesty(ExperimentFrame):
     def createObject(self):
         shape = random.choice(self.shapes)
         color = random.choice(self.colors)
-        reward = 0 if random.random() > self.bribeProbability else random.choice(self.bribes)
+        congruent = self.shapes[self.colors.index(color)] == shape
+        reward = 0 if random.random() > self.bribeProbability or congruent else random.choice(self.bribes)
         x0, x1, x2 = -self.size*2, 0-self.size, 0
         y0 = 10
         y1, y2 = y0 + self.size, y0 + 2*self.size
@@ -363,17 +381,17 @@ class Dishonesty(ExperimentFrame):
             
     def write(self):
         for order, line in enumerate(self.responses, 1):
-            begin = [self.id, self.bribesgroup, order]
+            begin = [self.id, order]
             end = [self.charityTotal, self.rewardTotal]
             self.file.write("\t".join(map(str, begin + line + end)) + "\n")
 
 
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.getcwd()))
-    GUI([DishonestyInstructions,
-         DishonestyInstructions2,
-         DishonestyInstructions3,
-         DishonestyInstructions4,
-         DishonestyInstructions5,
+    GUI([#DishonestyInstructions,
+         #DishonestyInstructions2,
+         #DishonestyInstructions3,
+         #DishonestyInstructions4,
+         #DishonestyInstructions5,
          Dishonesty])
 

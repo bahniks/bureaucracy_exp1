@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
 from time import localtime, strftime
+from constants import TESTING
 
 import os
 
@@ -11,25 +12,20 @@ class GUI(Tk):
         super().__init__()
         
         self.title("Experiment")
-        self.state("zoomed")
         self.config(bg = "white")
-        self.attributes("-topmost", True)
-        self.overrideredirect(True)
+        if TESTING:
+            self.geometry("1680x1050")
+        self.attributes("-fullscreen", not TESTING)
+        self.attributes("-topmost", not TESTING)
+        self.overrideredirect(not TESTING)
         self.protocol("WM_DELETE_WINDOW", lambda: self.closeFun())
-        #self.geometry("1366x768") # for testing
 
-        self.screenwidth = 1366 # adjust
-        self.screenheight = 768 # adjust
+        self.screenwidth = 1680 # adjust
+        self.screenheight = 1050 # adjust
 
         filepath = os.path.join(os.getcwd(), "Data")
         if not os.path.exists(filepath):
-            message = "Zavolejte prosím experimentátora."
-            secondary = "Složka pro ukládání výsledků neexistuje.\nJe potřeba vytvořit "\
-                        "složku Data ve stejné složce, kde je umístěn soubor s experimentem."            
-            messagebox.showinfo(message = message, icon = "error", title = "Chyba",
-                                parent = self, detail = secondary)
-            self.destroy()
-            return
+            os.mkdir(filepath)
         
         writeTime = localtime()
         self.outputfile = os.path.join(filepath, strftime("%y_%m_%d_%H%M%S", writeTime) + ".txt")
@@ -66,6 +62,10 @@ class GUI(Tk):
 
 
     def closeFun(self, event = ""):
+        if TESTING:
+            self.destroy()
+            return
+        
         message = "Jste si jistí, že chcete studii předčasně ukončit? "
         ans = messagebox.askyesno(message = message, icon = "question", parent = self,
                                   title = "Ukončit studii?")
