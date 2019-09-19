@@ -19,6 +19,7 @@ group = random.sample([(0.01, 40), (0.01, 400), (0.01, "end"),
 group = group[0]
 probability = group[0]
 punishment = group[1]
+probability = 0.5 # for testing
 
 if punishment == "end":
     size = "úloha bude ukončena a Vám i charitě zůstanou Vaše stávající bodová odměna."
@@ -27,8 +28,13 @@ else:
 
 punishmentInstructions = "V tomto případně budete mít nicméně šanci {}%, že body navíc neobdržíte a {}.".format(probability*100, size) if punishment != "control" else ""
 
-punishmentText = "Obrázek jste zatřídili spatně!" # upravit
+punishmentText = """Bylo zaznamenáno zatřídění podle tvaru místo podle barvy a bylo Vám strženo {} bodů.
+Pravděpodobnost zaznamenání zatřídění v rozporu s pravidly je {}%.
+Úloha znovu začne po odečtu.
+""".format(punishment, probability)
 
+if punishment == "end":
+    punishmentText = """Bylo zaznamenáno zatřídění podle tvaru místo podle barvy, což znamená, že úloha je ukončena."""
 
 
 
@@ -154,12 +160,13 @@ class Dishonesty(ExperimentFrame):
 
         #######################
         # adjustable parameters
-        self.maxObjects = 200 # adjust for testing
+        self.maxObjects = 10 # 200 # adjust for testing
         self.charityBeginning = 2000
-        self.spacingTime = 2.5
+        self.spacingTime = 2.5 # zmenit? - muzou byt dva objekty najednou takto
+        self.pauseTime = 6
         self.speed = 500
         self.bribes = [i*10 for i in range(4, 19)]
-        self.bribeProbability = 0.2
+        self.bribeProbability = 0.5 # 0.2
         self.sortReward = 3
         self.wrongPenalty = 200
         #######################
@@ -210,6 +217,7 @@ class Dishonesty(ExperimentFrame):
         self.rewardTotal = 0
         self.responses = []
         self.responsesTotal = 0
+        self.punishmentTextObject = None
 
         self.charityVar.set(self.charityText.format(self.charityTotal))
         self.rewardVar.set(self.rewardText.format(self.rewardTotal))
@@ -224,6 +232,8 @@ class Dishonesty(ExperimentFrame):
         self.root.bind("2", lambda e: self.response(2))
         self.root.bind("3", lambda e: self.response(3))
 
+        self.paused = False
+        self.pause = 0
         self.time = perf_counter()
 
 
@@ -251,48 +261,79 @@ class Dishonesty(ExperimentFrame):
         else:
             colorRight = 1
 
+        timeScreen = t - self.infos[idnum][3]
+        timePrevious = t - self.time
+        responseColor = self.colors[number-1]
+        responseShape = self.shapes[number-1]
+
+        if shapeRight and not colorRight and random.random() < probability and bribe:
+            if punishment != "end" and punishment != "control":
+                self.rewardTotal -= punishment
+            self.rewardTotal -= bribe
+            self.paused = True
+            punished = 1
+        else:
+            punished = 0
+
         self.charityVar.set(self.charityText.format(self.charityTotal))
         self.rewardVar.set(self.rewardText.format(self.rewardTotal))
 
         self.responsesTotal += 1
         self.numberVar.set(self.numberText.format(self.responsesTotal))
 
-        timeScreen = t - self.infos[idnum][3]
-        timePrevious = t - self.time
-        responseColor = self.colors[number-1]
-        responseShape = self.shapes[number-1]
-
-        if shapeRight and not colorRight and random.random() < probability:
-            self.middle.create_text((self.width/2, 125), text = punishmentText, font = "helvetica 30") #
-            
         self.responses.append([timeScreen, timePrevious, shape, color, bribe, responseShape,
-                               responseColor, shapeRight, colorRight, self.charityTotal,
+                               responseColor, shapeRight, colorRight, punished, self.charityTotal,
                                self.rewardTotal, number] + self.colors + self.shapes)
 
         self.changePotsColors()
         self.time = perf_counter()
-        
+
+
+    def punishmentUpdate(self):
+        if self.pause < self.pauseTime - 3 and not self.punishmentTextObject:
+            self.punishmentTextObject = self.middle.create_text((self.width/2, 125), text = punishmentText, font = "helvetica 20", justify = "center")
+        elif self.pause > self.pauseTime - 3 and punishment == "end":
+            return True
+        elif self.pauseTime - 2 > self.pause > self.pauseTime - 3:
+            self.middle.itemconfigure(self.punishmentTextObject, text = "3")
+            self.middle.itemconfigure(self.punishmentTextObject, font = "helvetica 35")
+        elif self.pauseTime - 1 > self.pause > self.pauseTime - 2:
+            self.middle.itemconfigure(self.punishmentTextObject, text = "2")
+        elif self.pauseTime > self.pause > self.pauseTime - 1:
+            self.middle.itemconfigure(self.punishmentTextObject, text = "1")
+        elif self.pause > self.pauseTime:
+            if self.punishmentTextObject:
+                self.middle.delete(self.punishmentTextObject)
+                self.punishmentTextObject = None
+            self.pause = 0
+            self.paused = False
+        return False    
+
 
     def run(self):
         self.root.config(cursor = "none")
         t0 = perf_counter()
         objects = 0
-        toNext = 0
+        timer = 0
+        end = False
         while True:
             t1 = perf_counter()
             dif = t1 - t0
-            self.move(dif * self.speed)
+            if not self.paused:
+                self.move(dif * self.speed)
+                timer += dif
+            else:
+                self.pause += dif
+                end = self.punishmentUpdate()
             self.root.update()
-            toNext += dif
-            if toNext > self.spacingTime and objects < self.maxObjects:
+            if timer > self.spacingTime and objects < self.maxObjects:
                 self.createObject()
-                toNext -= self.spacingTime
+                timer -= self.spacingTime
                 objects += 1
             t0 = t1
-            if objects == self.maxObjects:
-                if not self.objects:
-                    self.root.config(cursor = "arrow")
-                    break
+            if (objects == self.maxObjects and not self.objects) or end:
+                self.root.config(cursor = "arrow")
+                break
         self.root.reward = self.rewardTotal
         self.root.charity = self.charityTotal
         self.nextFun()
