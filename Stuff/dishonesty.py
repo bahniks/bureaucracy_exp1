@@ -9,6 +9,7 @@ import os
 
 from common import ExperimentFrame, InstructionsFrame
 from gui import GUI
+from charity import Charity
 
 
 
@@ -22,11 +23,11 @@ punishment = group[1]
 probability = 0.5 # for testing
 
 if punishment == "end":
-    size = "úloha bude ukončena a Vám i charitě zůstanou Vaše stávající bodová odměna."
+    size = "úloha bude ukončena a vám i charitě zůstanou vaše stávající bodová odměna."
 else:
     size = "ztratíte {} bodů ze své odměny".format(punishment)
 
-punishmentInstructions = "V tomto případně budete mít nicméně šanci {}%, že body navíc neobdržíte a {}.".format(probability*100, size) if punishment != "control" else ""
+punishmentInstructions = "V tomto případě je šance {}%, že porušení pravidla bude odhaleno a vy body navíc neobdržíte a ještě {}.".format(probability*100, size) if punishment != "control" else ""
 
 punishmentText = """Bylo zaznamenáno zatřídění podle tvaru místo podle barvy a bylo Vám strženo {} bodů.
 Pravděpodobnost zaznamenání zatřídění v rozporu s pravidly je {}%.
@@ -423,13 +424,14 @@ class Dishonesty(ExperimentFrame):
     def write(self):
         for order, line in enumerate(self.responses, 1):
             begin = [self.id, order]
-            end = [self.charityTotal, self.rewardTotal]
+            end = [self.charityTotal, self.rewardTotal, probability, punishment]
             self.file.write("\t".join(map(str, begin + line + end)) + "\n")
 
 
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.getcwd()))
-    GUI([#DishonestyInstructions,
+    GUI([#Charity,
+         #DishonestyInstructions,
          #DishonestyInstructions2,
          #DishonestyInstructions3,
          #DishonestyInstructions4,

@@ -33,6 +33,8 @@ class GUI(Tk):
         self.bind("<Escape>", self.closeFun)
 
         self.order = frames
+
+        self.texts = {}
                                     
         self.count = -1
 
