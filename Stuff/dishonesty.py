@@ -42,9 +42,9 @@ dishonestyintro = """
 Svým jednáním v této úloze můžete pro sebe a pro vámi vybranou charitu získávat nebo ztrácet body, jež se na konci experimentu převedou na peníze dle kurzu 10 bodů = 1 Kč.
 
 --Ovládání--
-Vaším úkolem bude třídit obrázky objevující se na obrazovce dle BARVY. Obrázky mohou mít modrou, oranžovou nebo žlutou barvu a tvar kruhu, trojuhelníku nebo čtverce.
+Vaším úkolem bude třídit obrázky objevující se na obrazovce dle BARVY. Obrázky mohou mít modrou, oranžovou nebo žlutou barvu a tvar kruhu, trojúhelníku nebo čtverce.
 
-Každý obrázek lze stisknutím klávesy 1, 2 a 3 na numerické klávesnici zatřídit k jedné barvě a k jednomu tvaru. Jaká barva a jaký tvar jsou právě spojeny s klávesami 1, 2 a 3 můžete vidět v dolní části obrazovky. Například teď v dolním řádku vidíte, že s klávesou 1 je nyní spojena oranžová barva a trojúhelníkový tvar. Pokud by se teď na obrazovce objevil obrázek a vy byste stiskl(a) klávesu 1, zatřídíte tento obrázek k oranžové barvě a trojuhelníkovému tvaru.
+Každý obrázek lze stisknutím klávesy 1, 2 a 3 na numerické klávesnici zatřídit k jedné barvě a k jednomu tvaru. Jaká barva a jaký tvar jsou právě spojeny s klávesami 1, 2 a 3 můžete vidět v dolní části obrazovky. Například teď v dolním řádku vidíte, že s klávesou 1 je nyní spojena oranžová barva a trojúhelníkový tvar. Pokud by se teď na obrazovce objevil obrázek a vy byste stiskl(a) klávesu 1, zatřídíte tento obrázek k oranžové barvě a trojúhelníkovému tvaru.
 
 Během úlohy bude v dolní části obrazovky vždy vidět, jaká barva a jaký tvar jsou právě spojeny s klávesami 1, 2 a 3. 
 Pozor – po zatřídění každého obrázku se spojení barev a kláves změní, musíte je proto pozorně sledovat.
@@ -226,7 +226,7 @@ class Dishonesty(ExperimentFrame):
 
         self.charityVar.set(self.charityText.format(self.charityTotal))
         self.rewardVar.set(self.rewardText.format(self.rewardTotal))
-        self.numberVar.set(self.numberText.format(self.responsesTotal))
+        self.numberVar.set(self.numberText.format(self.responsesTotal + 1))
 
         self.createPots()
 
@@ -285,7 +285,7 @@ class Dishonesty(ExperimentFrame):
         self.rewardVar.set(self.rewardText.format(self.rewardTotal))
 
         self.responsesTotal += 1
-        self.numberVar.set(self.numberText.format(self.responsesTotal))
+        self.numberVar.set(self.numberText.format(self.responsesTotal + 1))
 
         self.responses.append([timeScreen, timePrevious, shape, color, bribe, responseShape,
                                responseColor, shapeRight, colorRight, self.punished, self.charityTotal,
@@ -423,7 +423,7 @@ class Dishonesty(ExperimentFrame):
             responseColor = responseShape = "NA"
             colorRight = shapeRight = 0
             self.responsesTotal += 1
-            self.numberVar.set(self.numberText.format(self.responsesTotal))
+            self.numberVar.set(self.numberText.format(self.responsesTotal + 1))
             self.responses.append([timeScreen, timePrevious, shape, color, bribe, responseShape,
                                    responseColor, shapeRight, colorRight, self.charityTotal,
                                    self.rewardTotal, "NA"] + self.colors + self.shapes)
