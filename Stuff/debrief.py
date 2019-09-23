@@ -18,12 +18,12 @@ class Debriefing(ExperimentFrame):
         self.question1 = Question(self, q1, width = 68, answer = (ttk.Entry, {"width": 118}))
         self.question1.grid(row = 1, column = 1, sticky = E)
 
-        q2 = "Kdyby někdo ve snaze získat vepsané body navíc zatřídil tvar ke špatné\nbarvě a způsobil tak ztrátu bodů pro charitu, bylo by to:"
+        q2 = "Kdyby někdo ve snaze získat vepsané body navíc porušil pravidlo třídění\na způsobil tak ztrátu bodů pro charitu, bylo by to:"
         adj1 = ["opovrženíhodné", "nespravedlivé", "nečestné", "nemorální"]
         self.frame1 = OneFrame(self, q2, adj1)
         self.frame1.grid(row = 2, column = 1, sticky = E)
 
-        q3 = "Kdyby někdo ve snaze neztratit body pro charitu nezatřídil obrázek dle\ntvaru ale dle barvy a nezískal tak navíc body pro sebe, bylo by to:"
+        q3 = "Kdyby někdo ve snaze neztratit body pro charitu ignoroval nabídnuté body\na dodržel pravidlo o třídění dle barvy, bylo by to:"
         adj2 = ["chvályhodné", "spravedlivé", "čestné", "morální"]
         self.frame2 = OneFrame(self, q3, adj2)
         self.frame2.grid(row = 3, column = 1, sticky = E)            
@@ -64,7 +64,7 @@ class OneFrame(Canvas):
         self.root = root
         self.file = self.root.file
 
-        answers = ["určite ne", "spíše ne", "spíše ano", "určitě ano"]
+        answers = ["určitě ne", "spíše ne", "spíše ano", "určitě ano"]
         
         self.lab1 = ttk.Label(self, text = question, font = "helvetica 15", background = "white")
         self.lab1.grid(row = 2, column = 1, columnspan = 2, pady = 10, sticky = E)

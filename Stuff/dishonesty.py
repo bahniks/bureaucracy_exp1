@@ -165,7 +165,7 @@ class Dishonesty(ExperimentFrame):
 
         #######################
         # adjustable parameters
-        self.maxObjects = 10 # 200 # adjust for testing
+        self.maxObjects = 200 # adjust for testing
         self.charityBeginning = 2000
         self.spacingTime = 2.5 
         self.pauseTime = 6

@@ -14,8 +14,10 @@ from demo import Demographics
 from comments import Comments
 from hexaco import Hexaco, HexacoInstructions
 from debrief import Debriefing
+from charity import Charity
 
 frames = [Intro,
+          Charity,
           DishonestyInstructions,
           DishonestyInstructions2,
           DishonestyInstructions3,
