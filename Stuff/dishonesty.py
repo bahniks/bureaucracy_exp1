@@ -20,14 +20,13 @@ group = random.sample([(0.01, 40), (0.01, 400), (0.01, "end"),
 group = group[0]
 probability = group[0]
 punishment = group[1]
-probability = 0.5 # for testing
 
 if punishment == "end":
-    size = "úloha bude ukončena a vám i charitě zůstanou vaše stávající bodová odměna."
+    size = "úloha bude ukončena a vám i charitě zůstane vaše stávající bodová odměna"
 else:
     size = "ztratíte {} bodů ze své odměny".format(punishment)
 
-punishmentInstructions = "V tomto případě je šance {}%, že porušení pravidla bude odhaleno a vy body navíc neobdržíte a ještě {}.".format(probability*100, size) if punishment != "control" else ""
+punishmentInstructions = "V tomto případě je nicméně šance {}%, že porušení pravidla bude odhaleno a vy body navíc neobdržíte a kromě toho {}.".format(int(probability*100), size) if punishment != "control" else ""
 
 punishmentText = """Bylo zaznamenáno zatřídění podle tvaru místo podle barvy a bylo Vám strženo {} bodů.
 Pravděpodobnost zaznamenání zatřídění v rozporu s pravidly je {}%.
@@ -40,55 +39,60 @@ if punishment == "end":
 
 
 dishonestyintro = """
-V následující úloze máte možnost získat peníze navíc pro sebe a pro charitativní organizaci Člověk v tísni. Svým jednáním v úloze můžete pro sebe a pro charitu získávat nebo ztrácet body, jež se na konci experimentu převedou na peníze dle kurzu 10 bodů = 1 Kč.
+Svým jednáním v této úloze můžete pro sebe a pro vámi vybranou charitu získávat nebo ztrácet body, jež se na konci experimentu převedou na peníze dle kurzu 10 bodů = 1 Kč.
 
 --Ovládání--
-Vaším úkolem bude třídit obrázky objevující se na obrazovce. Obrázky mohou mít tvar kruhu, trojuhelníku nebo čtverce a modrou, oranžovou nebo žlutou barvu.
+Vaším úkolem bude třídit obrázky objevující se na obrazovce dle BARVY. Obrázky mohou mít modrou, oranžovou nebo žlutou barvu a tvar kruhu, trojuhelníku nebo čtverce.
 
-Každý obrázek lze stisknutím klávesy 1, 2 a 3 na numerické klávesnici zatřídit k jedné barvě a k jednomu tvaru. Jaká barva a jaký tvar jsou právě spojeny s klávesami 1, 2 a 3 můžete videt v dolní části obrazovky. Například teď v dolním řádku vidíte, že s klávesou 1 je nyní spojena oranžová barva a trojúhelníkový tvar. Pokud by se teď na obrazovce objevil obrázek a Vy byste stiskl(a) klávesu 1, zatřídíte tento obrázek k oranžové barvě a trojuhelníkovému tvaru.
+Každý obrázek lze stisknutím klávesy 1, 2 a 3 na numerické klávesnici zatřídit k jedné barvě a k jednomu tvaru. Jaká barva a jaký tvar jsou právě spojeny s klávesami 1, 2 a 3 můžete vidět v dolní části obrazovky. Například teď v dolním řádku vidíte, že s klávesou 1 je nyní spojena oranžová barva a trojúhelníkový tvar. Pokud by se teď na obrazovce objevil obrázek a vy byste stiskl(a) klávesu 1, zatřídíte tento obrázek k oranžové barvě a trojuhelníkovému tvaru.
 
-Během úlohy bude v dolní části obrazovky vždy vidět, jaká barva a jaký tvar jsou právě spojeny s klávesami 1, 2 a 3. Pozor – po zatřídění každého obrázku se spojení barev a kláves změní, musíte je proto pozorně sledovat.
+Během úlohy bude v dolní části obrazovky vždy vidět, jaká barva a jaký tvar jsou právě spojeny s klávesami 1, 2 a 3. 
+Pozor – po zatřídění každého obrázku se spojení barev a kláves změní, musíte je proto pozorně sledovat.
 
 --Získávání bodů--
-Výše příspěvku, který PLESS odvede na charitu, závisí na tom, zda budete obrázky třídit dle BARVY. Příspěvek má na začátku hodnotu 2000 bodů. Pokud obrázek zatřídíte k jiné barvě, než je barva obrázku, příspěvek se sníží o 200 bodů. Pokud obrázek zatřídíte ke stejné barvě, výše příspěvku pro charitu se nezmění. 
-(Je možné se dostat i do záporných hodnot – o zápornou sumu se v takovém případě sníží celkový příspěvek věnovaný na charitu za všechny účastníky studie.)
+Výše příspěvku, který PLESS odvede na charitu, závisí na tom, zda budete dodržovat pravidlo třídění, tj. obrázky třídit dle BARVY. Příspěvek má na začátku hodnotu 2000 bodů. Pokud obrázek zatřídíte k jiné barvě, než je barva obrázku, příspěvek se sníží o 200 bodů. Pokud obrázek zatřídíte ke stejné barvě, výše příspěvku pro charitu se nezmění.
+(Je možné se dostat i do záporných hodnot – o zápornou sumu se v takovém případě sníží celkový příspěvek věnovaný vybrané charitě za všechny účastníky studie.)
 
-Vaše odměna je na začátku 0 bodů. Za každý zatříděný obrázek získáte 3 body, bez ohledu na to k jaké barvě nebo tvaru ho zatřídíte. Pouze pokud obrázek nezatřídíte nijak (tj. nestisknete žádnou klávesu), nezískate za něj žádné body.
+Vaše odměna je na začátku 0 bodů. Za každý zatříděný obrázek získáte 3 body, bez ohledu na to, zda ho zatřídíte v souladu s pravidlem nebo ne. Pouze pokud obrázek nezatřídíte nijak (tj. nestisknete žádnou klávesu), nezískáte za něj žádné body.
 
-Během úlohy můžete svoji odměnu ještě dále zvýšit, pokud budete někdy ignorovat pravidlo o zařazování dle BARVY a některé obrázky místo toho zatřídíte dle TVARU. Pokud obrázek s vepsaným číslem zatřídíte dle TVARU, získáte pro sebe navíc počet bodů odpovídající vepsanému číslu.
-Zatřídění dle BARVY a dle TVARU se někdy neliší - například oranžový trojúhelník teď klávesou 1 zatřídíte k odpovídající barvě i odpovídajícímu tvaru.
-V jiných případech se ale zatřídění dle BARVY a dle TVARU může lišit: pokud budete chtít v takovém případě získat pro sebe body navíc a zatřídíte obrázek ke špatné barvě, příspěvek na charitu se sníží o 200 bodů. Samozřejme můžete body navíc ignorovat a obrázek zatřídit k odpovídající barvě.
+Některé obrázky mají uvnitř vepsané číslo. U těchto obrázků vám počítačový program nabízí odměnu za porušení pravidla a zatřídění obrázku dle TVARU. Pokud bude v obrázku vepsané číslo, získáte pro sebe navíc počet bodů odpovídající vepsanému číslu, když budete ignorovat pravidlo o zařazování dle BARVY a obrázek místo toho zatřídíte dle TVARU. Příspěvek na charitu se v tomto případě sníží o 200 bodů. {} Samozřejmě můžete body navíc ignorovat a obrázek zatřídit k odpovídající barvě.
 
 Po kliknutí na Pokračovat uvidíte, jak bude vypadat obrazovka během úlohy.
-"""
+""".format(punishmentInstructions)
 
 screenintro1 = """Níže vidíte, jak vypadá obrazovka v průběhu úkolu spolu s popisky jednotlivých prvků.
 Až si obrázek prohlédnete, klikněte na Pokračovat."""
 
-screenintro2 = """Níže vidíte, co se stane, když žlutý čtverec, jenž jste viděli dříve, zatřídíte dle TVARU. 
+if probability:
+    additionalInfoScreen2 = " a nebudete odhaleni"
+else:
+    additionalInfoScreen2 = ""
+
+screenintro2 = """Níže vidíte, co se stane, když žlutý čtverec, jenž jste viděli dříve, zatřídíte dle TVARU{}. 
 Až si obrázek prohlédnete, klikněte na Pokračovat.
-"""
+""".format(additionalInfoScreen2)
+
 screenintro3 = """Níže vidíte, co se stane, když žlutý čtverec, jenž jste viděli dříve, zatřídíte dle BARVY. 
 Až si obrázek prohlédnete, klikněte na Pokračovat.
 """
 
 dishonestyrecap = """
---Získávání bodů (zopakování)-- 
-Výše příspěvku, který PLESS odvede na charitu, závisí na tom, zda budete obrázky třídit dle BARVY. Příspěvek má na začátku hodnotu 2000 bodů. Pokud obrázek zatřídíte k jiné barvě, než je barva obrázku, příspěvek se sníží o 200 bodů. Pokud obrázek zatřídíte ke stejné barvě, výše příspěvku pro charitu se nezmění. 
+--Získávání bodů (zopakování)--
+Výše příspěvku, který PLESS odvede na charitu, závisí na tom, zda budete dodržovat pravidlo a obrázky třídit dle BARVY. Příspěvek má na začátku hodnotu 2000 bodů. Pokud obrázek zatřídíte k jiné barvě, než je barva obrázku, příspěvek se sníží o 200 bodů. Pokud obrázek zatřídíte ke stejné barvě, výše příspěvku pro charitu se nezmění.
 (Je možné se dostat i do záporných hodnot.)
 
-Vaše odměna je na začátku 0 bodů. Za každý zatříděný obrázek získáte 3 body, bez ohledu na to k jaké barvě nebo tvaru ho zatřídíte. 
+Vaše odměna je na začátku 0 bodů. Za každý zatříděný obrázek získáte 3 body, bez ohledu na to k jaké barvě nebo tvaru ho zatřídíte.
 
-Během úlohy můžete svoji odměnu ještě dále zvýšit, pokud budete někdy ignorovat pravidlo o zařazování dle BARVY a některé obrázky místo toho zatřídíte dle TVARU. Pokud obrázek s vepsaným číslem zatřídíte dle TVARU, získáte pro sebe navíc počet bodů odpovídající vepsanému číslu.
-Zatřídění dle BARVY a dle TVARU se někdy může lišit: pokud budete chtít v takovém případě získat pro sebe body navíc a zatřídíte obrázek ke špatné barvě, příspěvek na charitu se sníží o 200 bodů. Samozřejme můžete body navíc ignorovat a obrázek zatřídit k odpovídající barvě.
+Během úlohy můžete svoji odměnu ještě dále zvýšit, pokud budete někdy ignorovat pravidlo o zařazování dle BARVY a některé obrázky místo toho zatřídíte dle TVARU. Pokud obrázek s odměnou nabídnutou počítačovým programem zatřídíte dle TVARU, získáte pro sebe navíc počet bodů odpovídající číslu vepsanému v obrázku.
+Pokud budete chtít v takovém případě získat pro sebe body navíc a zatřídíte obrázek v rozporu s pravidlem, příspěvek na charitu se sníží o 200 bodů. {} Samozřejmě můžete nabídnutou odměnu navíc ignorovat a obrázek zatřídit k odpovídající barvě.
 ---------------------------------------------------------------------------------
 --Závěrečné informace--
-Po absolvování všech zbývajících úloh v dnešní studii proběhne na počítači losování. Pokud budete vylosován(a), body, jež v této třídící úloze získáte pro sebe a pro charitu Člověk v tísni, se převedou na peníze kurzem 10 bodů = 1 Kč a budou vyplaceny. Šance na vylosování je 1:13.
-Vaše odměna Vám bude vyplacena po skončení dnešní studie. Peníze pro charitu Člověk v tísni budou po skončení sběru dat převedeny na účet 76327632/0300 (převod peněz pro charitu garantuje vedoucí katedry psychologie doc. Gillernová). 
+Po absolvování všech zbývajících úloh v dnešní studii proběhne na počítači losování. Pokud budete vylosován(a), body, jež v této třídící úloze získáte pro sebe a pro charitu Člověk v tísni, se převedou na peníze kurzem 10 bodů = 1 Kč a budou vyplaceny. Šance na vylosování je 25%.
+Vaše odměna Vám bude vyplacena po skončení dnešní studie. Peníze pro charity od jednotlivých vylosovaných účastníků budou po skončení sběru dat sečteny a převedeny na bankovní účty charit.
 
 Poté, co si budete jisti, že instrukcím rozumíte, klikněte na Pokračovat a ukazováček, prostředníček a prsteníček položte na klávesy 1, 2 a 3 na numerické klávesnici.
-Pozor, po kliknutí na Pokračovat úloha hned začne a na zatřídění každého obrázku máte jen několik vteřin - kým obrázek neopustí obrazovku. 
-"""
+Pozor, po kliknutí na Pokračovat úloha začne po krátkém odpočtu a na zatřídění každého obrázku máte jen několik vteřin - dokud obrázek neopustí obrazovku.
+""".format(punishmentInstructions)
 
 
 class ScreenshotInstructions(InstructionsFrame):
@@ -163,11 +167,11 @@ class Dishonesty(ExperimentFrame):
         # adjustable parameters
         self.maxObjects = 10 # 200 # adjust for testing
         self.charityBeginning = 2000
-        self.spacingTime = 2.5 # zmenit? - muzou byt dva objekty najednou takto
+        self.spacingTime = 2.5 
         self.pauseTime = 6
-        self.speed = 500
+        self.speed = 615
         self.bribes = [i*10 for i in range(4, 19)]
-        self.bribeProbability = 0.5 # 0.2
+        self.bribeProbability = 0.225
         self.sortReward = 3
         self.wrongPenalty = 200
         #######################
@@ -233,8 +237,9 @@ class Dishonesty(ExperimentFrame):
         self.root.bind("2", lambda e: self.response(2))
         self.root.bind("3", lambda e: self.response(3))
 
-        self.paused = False
-        self.pause = 0
+        self.paused = True
+        self.pause = self.pauseTime - 3
+        self.punished = 0
         self.time = perf_counter()
 
 
@@ -272,9 +277,9 @@ class Dishonesty(ExperimentFrame):
                 self.rewardTotal -= punishment
             self.rewardTotal -= bribe
             self.paused = True
-            punished = 1
+            self.punished = 1
         else:
-            punished = 0
+            self.punished = 0
 
         self.charityVar.set(self.charityText.format(self.charityTotal))
         self.rewardVar.set(self.rewardText.format(self.rewardTotal))
@@ -283,7 +288,7 @@ class Dishonesty(ExperimentFrame):
         self.numberVar.set(self.numberText.format(self.responsesTotal))
 
         self.responses.append([timeScreen, timePrevious, shape, color, bribe, responseShape,
-                               responseColor, shapeRight, colorRight, punished, self.charityTotal,
+                               responseColor, shapeRight, colorRight, self.punished, self.charityTotal,
                                self.rewardTotal, number] + self.colors + self.shapes)
 
         self.changePotsColors()
@@ -293,11 +298,14 @@ class Dishonesty(ExperimentFrame):
     def punishmentUpdate(self):
         if self.pause < self.pauseTime - 3 and not self.punishmentTextObject:
             self.punishmentTextObject = self.middle.create_text((self.width/2, 125), text = punishmentText, font = "helvetica 20", justify = "center")
-        elif self.pause > self.pauseTime - 3 and punishment == "end":
+        elif self.pause > self.pauseTime - 3 and punishment == "end" and self.punished:
             return True
         elif self.pauseTime - 2 > self.pause > self.pauseTime - 3:
-            self.middle.itemconfigure(self.punishmentTextObject, text = "3")
-            self.middle.itemconfigure(self.punishmentTextObject, font = "helvetica 35")
+            if not self.punishmentTextObject:
+                self.punishmentTextObject = self.middle.create_text((self.width/2, 125), text = "3", font = "helvetica 35", justify = "center")
+            else:
+                self.middle.itemconfigure(self.punishmentTextObject, text = "3")
+                self.middle.itemconfigure(self.punishmentTextObject, font = "helvetica 35")
         elif self.pauseTime - 1 > self.pause > self.pauseTime - 2:
             self.middle.itemconfigure(self.punishmentTextObject, text = "2")
         elif self.pauseTime > self.pause > self.pauseTime - 1:
@@ -335,8 +343,8 @@ class Dishonesty(ExperimentFrame):
             if (objects == self.maxObjects and not self.objects) or end:
                 self.root.config(cursor = "arrow")
                 break
-        self.root.reward = self.rewardTotal
-        self.root.charity = self.charityTotal
+        self.root.texts["reward"] = self.rewardTotal
+        self.root.texts["charityReward"] = self.charityTotal
         self.nextFun()
 
 
@@ -430,11 +438,11 @@ class Dishonesty(ExperimentFrame):
 
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.getcwd()))
-    GUI([#Charity,
-         #DishonestyInstructions,
-         #DishonestyInstructions2,
-         #DishonestyInstructions3,
-         #DishonestyInstructions4,
-         #DishonestyInstructions5,
+    GUI([Charity,
+         DishonestyInstructions,
+         DishonestyInstructions2,
+         DishonestyInstructions3,
+         DishonestyInstructions4,
+         DishonestyInstructions5,
          Dishonesty])
 
