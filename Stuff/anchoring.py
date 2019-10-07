@@ -13,7 +13,19 @@ from gui import GUI
 
 items = [["subway", "vzdálenost stanic metra Muzeum a Hlavní nádraží"],
          ["soccer", "délka typického fotbalového hřiště"],
-         ["tree", "nejvyšší strom světa"]]
+         ["tree", "výška nejvyššího stromu světa"],
+         ["eiffel", "výška Eiffelovy věže"],
+         ["vaclav", "délka Václavského náměstí"],
+         ["ship", "délka nejdelší lodě"],
+         ["skyscraper", "výška nejvyššího mrakodrapu Burj Khalifa"],
+         ["waterfall", "výška nejvyššího vodopádu Salto Angel"],
+         ["viaduct", "výška nejvyššího mostu viaduktu Millau"],
+         ["bridge", "délka Nuselského mostu"],
+         ["pyramid", "výška nejvyšší (Chufuovi) pyramidy v Gíze"],
+         ["petrin", "délka lanové dráhy na Petřín"],
+         ["strahov", "délka Velkého strahovského stadionu"]
+         ]
+
 random.shuffle(items)
 
 
@@ -32,10 +44,18 @@ class Comparison(ExperimentFrame):
                            highlightbackground = "black")
         self.slot.grid(row = 2, column = 1, columnspan = 2)
 
-        self.question = "Je {} menší nebo větší než {}?"
+        self.instruction = 'Zmáčkněte tlačítko "Znáhodnit" pro výběr náhodného čísla'
+        self.upper = Text(self, font = "helvetica 20", relief = "flat", background = "white",
+                          width = 80, height = 1, pady = 7, wrap = "word")
+        self.upper.grid(row = 0, column = 1, columnspan = 2, sticky = S)
+        self.upper.tag_configure("center", justify = "center")
+        self.upper.insert("1.0", self.instruction, "center")
+        self.upper["state"] = "disabled"
+
+        self.question = "Je {} menší nebo větší než {} m?"
         self.text = Text(self, font = "helvetica 20", relief = "flat", background = "white",
                          width = 80, height = 1, pady = 7, wrap = "word")
-        self.text.grid(row = 3, column = 1, columnspan = 2)
+        self.text.grid(row = 3, column = 1, columnspan = 2, sticky = S)
         self.text.tag_configure("center", justify = "center")
 
         ttk.Style().configure("TButton", font = "helvetica 18")
@@ -54,13 +74,12 @@ class Comparison(ExperimentFrame):
         
         self.rowconfigure(0, weight = 7)
         self.rowconfigure(1, weight = 4)
-        self.rowconfigure(3, weight = 3)
+        self.rowconfigure(3, weight = 5)
         self.rowconfigure(4, weight = 1)
         self.rowconfigure(5, weight = 2)
-        self.rowconfigure(6, weight = 6)
+        self.rowconfigure(6, weight = 10)
 
         self.number = 0
-        self.t0 = perf_counter()
 
         self.createSlots()
 
@@ -87,6 +106,10 @@ class Comparison(ExperimentFrame):
 
     def randomize(self):
         self.random["state"] = "disabled"
+        self.upper["state"] = "normal"
+        self.upper.delete("1.0", "end")
+        self.upper["state"] = "disabled"
+        
         self.starttime = perf_counter()
         self.time0 = self.starttime
         self.time = self.time0
@@ -131,13 +154,12 @@ class Comparison(ExperimentFrame):
         self.text.insert("end", self.question.format(items[self.number][1], self.anchor), "center")
         self.text["state"] = "disabled"
 
-        self.lower.grid(row = 5, column = 1)
-        self.higher.grid(row = 5, column = 2)
+        self.lower.grid(row = 5, column = 1, sticky = E, padx = 20)
+        self.higher.grid(row = 5, column = 2, sticky = W, padx = 20)
 
 
     def response(self, answer):
-        self.file.write("\t".join([self.id, items[self.number][0], str(self.anchor), answer,
-                                   str(perf_counter() - self.t0)]) + "\n")
+        self.file.write("\t".join([self.id, items[self.number][0], str(self.anchor), answer]) + "\n")
         self.number += 1
         self.proceed()
 
@@ -151,8 +173,80 @@ class Comparison(ExperimentFrame):
             self.lower.grid_forget()
             self.higher.grid_forget()
             self.random["state"] = "normal"
+            self.upper["state"] = "normal"
+            self.upper.insert("1.0", self.instruction, "center")
+            self.upper["state"] = "disabled"
 
+
+
+class Absolute(ExperimentFrame):
+    def __init__(self, root):
+        super().__init__(root)
+
+        self.file.write("Comparison\n")
+
+        self.answerVar = StringVar()
+        
+        self.question = "Jaká je {} v metrech?"
+        self.text = Text(self, font = "helvetica 20", relief = "flat", background = "white",
+                         width = 80, height = 1, pady = 7, wrap = "word")
+        self.text.grid(row = 1, column = 1, columnspan = 2, sticky = S)
+        self.text.tag_configure("center", justify = "center")
+
+        self.answer = ttk.Entry(self, textvariable = self.answerVar, font = "helvetica 20", width = 8)
+        self.answer.grid(row = 2, column = 1, sticky = E, pady = 10)
+
+        self.meters = ttk.Label(self, text = "m", font = "helvetica 20", background = "white")
+        self.meters.grid(row = 2, column = 2, sticky = W, pady = 10, padx = 5)
+
+        self.warning = ttk.Label(self, text = "Odpověď musít být číslo!\n(pro desetinná místa použijte tečku)", font = "helvetica 20",
+                                 background = "white", foreground = "white", justify = "center", state = "disabled")
+        self.warning.grid(row = 4, column = 1, columnspan = 2)
+
+        ttk.Style().configure("TButton", font = "helvetica 18")        
+        self.next = ttk.Button(self, text = "Pokračovat", command = self.proceed)
+        self.next.grid(row = 3, column = 1, columnspan = 2, pady = 50)
+
+        self.columnconfigure(0, weight = 4)
+        self.columnconfigure(3, weight = 4)
+        
+        self.rowconfigure(0, weight = 7)
+        self.rowconfigure(4, weight = 4)
+        self.rowconfigure(5, weight = 4)
+
+        self.number = 0
+
+        self.displayQuestion()
+        
+
+    def displayQuestion(self):
+        self.warning["foreground"] = "white"
+        self.answerVar.set("")
+        self.text["state"] = "normal"
+        self.text.delete("1.0", "end")
+        self.text.insert("1.0", self.question.format(items[self.number][1]), "center")
+        self.text["state"] = "disabled"
+        
+
+    def proceed(self):
+        try:
+            float(self.answerVar.get())
+        except:
+            self.warning["foreground"] = "red"
+            return
+
+        self.file.write("\t".join([self.id, items[self.number][0], self.answerVar.get()]) + "\n")
+        
+        self.number += 1
+        
+        if self.number == len(items):
+            self.nextFun()
+        else:
+            self.displayQuestion()
+
+        
 
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.getcwd()))
-    GUI([Comparison])
+    GUI([Comparison,
+         Absolute])
