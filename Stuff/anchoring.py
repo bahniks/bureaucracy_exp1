@@ -183,7 +183,7 @@ class Absolute(ExperimentFrame):
     def __init__(self, root):
         super().__init__(root)
 
-        self.file.write("Comparison\n")
+        self.file.write("Abolute\n")
 
         self.answerVar = StringVar()
         
