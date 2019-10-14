@@ -89,6 +89,13 @@ class Comparison(ExperimentFrame):
         self.slot.create_rectangle((self.slotwidth/3 + 3, 3, 2*self.slotwidth/3 + 3, self.slotheight), width = 3)
         self.slot.create_rectangle((2*self.slotwidth/3 + 3, 3, self.slotwidth + 3, self.slotheight), width = 3)
 
+        self.slot.create_polygon((0, self.slotheight/2 + 10,
+                                  0, self.slotheight/2 - 10,
+                                  15, self.slotheight/2), fill = "black")
+        self.slot.create_polygon((self.slotwidth + 5, self.slotheight/2 + 10,
+                                  self.slotwidth + 5, self.slotheight/2 - 10,
+                                  self.slotwidth - 10, self.slotheight/2), fill = "black")
+
         self.numbers = []
         
         self.one = random.randint(0, 9)
@@ -97,11 +104,11 @@ class Comparison(ExperimentFrame):
 
         for i in range(-4, 6):
             self.numbers.append((self.slot.create_text((self.slotwidth/6 + 5, 13*i*self.slotheight/30 + self.slotheight/2),
-                                                       text = (self.one+i) % 10, font = "helvetica 45"), 1))
+                                                       text = (self.one+i) % 10, font = "helvetica 45"), 1, (self.one+i) % 10))
             self.numbers.append((self.slot.create_text((3*self.slotwidth/6 + 5, 13*i*self.slotheight/30 + self.slotheight/2),
-                                                       text = (self.two+i) % 10, font = "helvetica 45"), 2))
+                                                       text = (self.two+i) % 10, font = "helvetica 45"), 2, (self.two+i) % 10))
             self.numbers.append((self.slot.create_text((5*self.slotwidth/6 + 5, 13*i*self.slotheight/30 + self.slotheight/2),
-                                                       text = (self.three+i) % 10, font = "helvetica 45"), 3))
+                                                       text = (self.three+i) % 10, font = "helvetica 45"), 3, (self.three+i) % 10))
 
 
     def randomize(self):
@@ -113,7 +120,8 @@ class Comparison(ExperimentFrame):
         self.starttime = perf_counter()
         self.time0 = self.starttime
         self.time = self.time0
-        self.endtime = self.time + random.randint(5, 7)
+        duration = random.randint(5, 7)
+        self.endtime = self.time + duration
 
         ends = [1,2,3]
         random.shuffle(ends)
@@ -122,20 +130,28 @@ class Comparison(ExperimentFrame):
         ends[0] += (int(stranchor[-3]) - self.one)/20
         ends[1] += (int(stranchor[-2]) - self.two)/20
         ends[2] += (int(stranchor[-1]) - self.three)/20
+
+        distances = [(duration - ends[i])*1300 for i in range(3)]
+        endPositions = {}
+        endPositions[1] = [((i - int(stranchor[-3]) + 9)%10 - 8)*self.slotheight*13/30 + self.slotheight/2 for i in range(10)]
+        endPositions[2] = [((i - int(stranchor[-2]) + 9)%10 - 8)*self.slotheight*13/30 + self.slotheight/2 for i in range(10)]
+        endPositions[3] = [((i - int(stranchor[-1]) + 9)%10 - 8)*self.slotheight*13/30 + self.slotheight/2 for i in range(10)]
         
         while self.time < self.endtime:
             self.time = perf_counter()
             for obj in self.numbers:
-                if ends[obj[1]-1] > self.endtime-self.time:
-                    continue
                 x, y = self.slot.coords(obj[0])
-                if y > 1.1*self.slotheight:
-                    y -= self.slotheight*13*10/30
-                y += (self.time - self.time0) * 1300
+                if distances[obj[1]-1] < 0:
+                    y = endPositions[obj[1]][obj[2]-1]
+                else:
+                    y += (self.time - self.time0) * 1300
+                    if y > 1.2*self.slotheight:
+                        y -= self.slotheight*13*10/30
                 self.slot.coords(obj[0], x, y)
+            distances = [i - (self.time - self.time0) * 1300 for i in distances]
             self.time0 = self.time
             self.update()
-            
+        
         self.one = int(stranchor[-3])
         self.two = int(stranchor[-2])
         self.three = int(stranchor[-1])
