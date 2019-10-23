@@ -272,14 +272,14 @@ class Absolute(ExperimentFrame):
             self.displayQuestion()
 
 
-Instructions1 = (InstructionsFrame, {"text": intro1, "height": 5, "font": 20})
-Instructions2 = (InstructionsFrame, {"text": intro2, "height": 2, "font": 20, "width": 60})
+AnchoringInstructions1 = (InstructionsFrame, {"text": intro1, "height": 5, "font": 20})
+AnchoringInstructions2 = (InstructionsFrame, {"text": intro2, "height": 2, "font": 20, "width": 60})
 
         
 
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.getcwd()))
-    GUI([Instructions1,
+    GUI([AnchoringInstructions1,
          Comparison,
-         Instructions2,
+         AnchoringInstructions2,
          Absolute])

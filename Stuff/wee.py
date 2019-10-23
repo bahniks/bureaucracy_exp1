@@ -26,7 +26,7 @@ Pro započetí úkolu klikněte na tlačítko 'Pokračovat'.
 
 keys = []
 materials = {}
-with open("wee.txt", encoding = "utf-8") as file:
+with open(os.path.join(os.path.dirname(__file__), "wee.txt"), encoding = "utf-8") as file:
     for i, line in enumerate(file):
         if not line.strip():
             continue

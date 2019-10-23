@@ -15,6 +15,10 @@ from comments import Comments
 from hexaco import Hexaco, HexacoInstructions
 from debrief import Debriefing
 from charity import Charity
+from anchoring import AnchoringInstructions1, Comparison, AnchoringInstructions2, Absolute
+from wee import WeakEvidenceInstructions, WeakEvidence
+from lottery import Lottery
+from character import CharacterIntro, Character, CharacterIntro2, GreenEvaluation
 
 frames = [Intro,
           Charity,
@@ -24,6 +28,17 @@ frames = [Intro,
           DishonestyInstructions4,
           DishonestyInstructions5,
           Dishonesty,
+          Lottery,
+          AnchoringInstructions1,
+          Comparison,
+          AnchoringInstructions2,
+          Absolute,
+          WeakEvidenceInstructions,
+          WeakEvidence,
+          CharacterIntro,
+          Character,
+          CharacterIntro2,
+          GreenEvaluation,
           HexacoInstructions,
           Hexaco,        
           Debriefing,
