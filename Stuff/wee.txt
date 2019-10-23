@@ -1,0 +1,11 @@
+milk
+Muž v pondělí koupí litr mléka. Jaká je pravděpodobnost, že mléko bude od středy za týden zkažené?
+Muž v pondělí koupí litr mléka. V úterý na 30 minut vypadne proud. Jaká je pravděpodobnost, že mléko bude od středy za týden zkažené?
+Muž v pondělí koupí litr mléka.  V úterý na 30 minut vypadne proud. Jaká je šance, že výpadek proudu způsobí, že mléko bude od středy za týden zkažené?
+Muž v pondělí koupil litr mléka. V úterý na 30 minut vypadne proud. Za týden od středy muž mléko z lednice vyndal a zjistil, že je zkažené. Jaká je pravděpodobnost, že zkažení mléka způsobil výpadek proudu?
+
+phone
+Rodiče 35 leté ženy bydlí na druhém kraji republiky. Jaká je pravděpodobnost, že žena nebude v dubnu neuslyší své rodiče?
+Rodiče 35 leté ženy bydlí na druhém kraji republiky. Tatáž žena ztratí prvního dubna mobilní telefon. Jaká je pravděpodobnost, že žena nebude v dubnu neuslyší své rodiče?
+Rodiče 35 leté ženy bydlí na druhém kraji republiky. Tatáž žena ztratí prvního dubna mobilní telefon. Jaká je šance, že ztáta telefonu způsobí, že žena nebude v dubnu neuslyší své rodiče?
+Rodiče 35 leté ženy bydlí na druhém kraji republiky. Tatáž žena ztratila prvního dubna mobilní telefon. Žena během dubna s rodiči nepromluvila. Jaká je pravděpodobnost, že žena s rodiči nemluvila kvůli ztrátě telefonu?
