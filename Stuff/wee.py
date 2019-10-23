@@ -7,12 +7,22 @@ from itertools import chain
 import os
 import random
 
-from common import ExperimentFrame
+from common import ExperimentFrame, InstructionsFrame
 from gui import GUI
 
 
 ################################################################################
 # TEXTS
+
+
+instructions = """V následující části experimentu je vaším úkolem odhadovat pravděpodobnosti různých jevů.
+Pokud se vám bude zdát, že nemáte dostatek informací, zkuste přesto uvést váš nejlepší odhad dané pravděpodobnosti.
+I pokud se vám budou zdát zadání podobná, čtěte je pečlivě, mohou mít pouze malé odlišnosti, které však mohou ovlivnit váš odhad pravděpodobnosti.
+
+Pro započetí úkolu klikněte na tlačítko 'Pokračovat'.
+"""
+
+
 
 keys = []
 materials = {}
@@ -112,6 +122,12 @@ class WeakEvidence(ExperimentFrame):
 
 
 
+WeakEvidenceInstructions = (InstructionsFrame, {"text": instructions, "height": 9, "font": 18, "width": 80})
+
+
+
+
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.getcwd()))
-    GUI([WeakEvidence])
+    GUI([WeakEvidenceInstructions,
+         WeakEvidence])
