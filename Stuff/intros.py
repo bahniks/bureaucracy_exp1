@@ -15,13 +15,6 @@ Kliknutím na tlačítko Pokračovat vyjadřujete svůj souhlas s účastí a an
 Pro začátek klikněte na tlačítko Pokračovat.
 """
 
-dilemmasintro = """
-Nyní budete číst krátké popisy několika situací a činů, jež různé osoby v těchto situacích vykonají nebo mohou vykonat.
-
-Při čtení můžete mít někdy pocit, že situace, tak jak jsou popsané, nejsou realistické. Například můžete číst, že když osoba udělá X, stane se Y, a můžete si myslet, že to není realistické – tedy že nemusí nutně dojít k Y, pokud osoba udělá X. V případě, že budete mít takovéto pochybnosti, prosíme potlačte je, jako byste to udělal(a) například u ne zcela realistického filmu a předpokládejte, že situace se odehrají tak, jak jsou popsány.
-
-Čtěte prosím pozorně popisy všech situací a odpovězte na otázky, jež budou po každé situaci následovat.
-"""
 
 endingtext = """
 Děkujeme za Vaši účast! 
@@ -43,7 +36,6 @@ winending = "V losování v souvislosti s úlohou s tříděním obrázků jste 
 lostending = "V losování v souvislosti s úlohou s tříděním obrázků jste nebyl(a) vybrán(a). Vaše odměna za dnešní experiment je tedy 100 Kč."
 
 Intro =(InstructionsFrame, {"text": intro})
-DilemmasIntro = (InstructionsFrame, {"text": dilemmasintro})
 
 
 class Ending(InstructionsFrame):
@@ -51,10 +43,10 @@ class Ending(InstructionsFrame):
         pass
     
     def __call__(self, root):
-        win = random.random() < 1/13
+        win = random.random() < 1/4
         if win:
-            reward = ceil(root.reward / 10)
-            charity = ceil(root.charity / 10)
+            reward = ceil(root.texts["reward"] / 10)
+            charity = ceil(root.texts["charityReward"] / 10)
             text = endingtext.format(winending.format(reward, charity, reward + 100))
         else:
             text = endingtext.format(lostending)
