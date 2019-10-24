@@ -15,7 +15,6 @@ class Demographics(ExperimentFrame):
         self.sex = StringVar()
         self.language = StringVar()
         self.age = StringVar()
-        self.hand = StringVar()
         self.student = StringVar()
         self.field = StringVar()
         self.field.set("Nestuduju VŠ")
@@ -29,9 +28,6 @@ class Demographics(ExperimentFrame):
         self.lab3 = ttk.Label(self, text = "Mateřský jazyk:  ", background = "white",
                               font = "helvetica 15")
         self.lab3.grid(column = 1, row = 3, pady = 2, sticky = W, padx = 2)
-        self.lab4 = ttk.Label(self, text = "Dominantní ruka:  ", background = "white",
-                              font = "helvetica 15")
-        self.lab4.grid(column = 1, row = 4, pady = 2, sticky = W, padx = 2)
         self.lab5 = ttk.Label(self, text = "Studujete VŠ?  ", background = "white",
                               font = "helvetica 15")
         self.lab5.grid(column = 1, row = 5, pady = 2, sticky = W, padx = 2)
@@ -50,11 +46,6 @@ class Demographics(ExperimentFrame):
                                      value = "slovak", command = self.checkAllFilled)
         self.other = ttk.Radiobutton(self, text = "jiný", variable = self.language,
                                      value = "other", command = self.checkAllFilled)
-
-        self.right = ttk.Radiobutton(self, text = "pravá", variable = self.hand,
-                                     value = "right", command = self.checkAllFilled)
-        self.left = ttk.Radiobutton(self, text = "levá", variable = self.hand,
-                                    value = "left", command = self.checkAllFilled)
 
         self.yes = ttk.Radiobutton(self, text = "ano", variable = self.student,
                                      value = "student", command = self.checkAllFilled)
@@ -91,8 +82,6 @@ class Demographics(ExperimentFrame):
         self.slovak.grid(column = 3, row = 3, pady = 7, padx = 7, sticky = W)
         self.other.grid(column = 4, row = 3, pady = 7, padx = 45, sticky = W)
         self.ageCB.grid(column = 2, row = 2, pady = 7, padx = 7, sticky = W)
-        self.left.grid(column = 2, row = 4, pady = 7, padx = 7, sticky = W)
-        self.right.grid(column = 3, row = 4, pady = 7, padx = 7, sticky = W)
         self.yes.grid(column = 2, row = 5, pady = 7, padx = 7, sticky = W)
         self.no.grid(column = 3, row = 5, pady = 7, padx = 7, sticky = W)
         self.fieldCB.grid(column = 2, columnspan = 2, row = 6, pady = 7, padx = 7, sticky = W)
@@ -109,13 +98,13 @@ class Demographics(ExperimentFrame):
 
     def checkAllFilled(self, _ = None):
         if all([v.get() for v in [self.language, self.age, self.sex,
-                                  self.hand, self.field, self.student]]):
+                                  self.field, self.student]]):
             self.next["state"] = "!disabled"
 
     def write(self):
         self.file.write("Demographics\n")
         self.file.write("\t".join([self.id, self.sex.get(), self.age.get(), self.language.get(),
-                                   self.hand.get(), self.student.get(), self.field.get()]) + "\n")
+                                   self.student.get(), self.field.get()]) + "\n")
 
 
 if __name__ == "__main__":
