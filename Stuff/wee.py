@@ -38,7 +38,7 @@ with open(os.path.join(os.path.dirname(__file__), "wee.txt"), encoding = "utf-8"
             materials[key].append(line.strip())        
 
 random.shuffle(keys)
-conditionNames = ["Marginal", "Conditional", "Causal", "Diagnostic"]
+conditionNames = ["Marginal", "Conditional", "Diagnostic", "Causal"]
 
 
 ################################################################################
@@ -51,8 +51,8 @@ class WeakEvidence(ExperimentFrame):
         self.numberOfRounds = min([10, len(materials)])
         self.conditions = [0]*int(self.numberOfRounds/2) + [1]*int(self.numberOfRounds/2)
         random.shuffle(self.conditions)
-        self.conditions = list(chain(*zip(self.conditions, [3]*self.numberOfRounds)))
-        self.conditions += [2]*self.numberOfRounds
+        self.conditions = list(chain(*zip(self.conditions, [2]*self.numberOfRounds)))
+        self.conditions += [3]*self.numberOfRounds
         self.keys = list(chain(*[(key, key) for key in keys[:self.numberOfRounds]])) + keys[:self.numberOfRounds]
 
         self.file.write("Weak evidence\n")
@@ -62,7 +62,7 @@ class WeakEvidence(ExperimentFrame):
 
         self.round = 0
 
-        self.text = Text(self, font = "helvetica 18", relief = "flat", background = "white", height = 3,
+        self.text = Text(self, font = "helvetica 18", relief = "flat", background = "white", height = 4,
                          wrap = "word", highlightbackground = "white", width = 80)
         self.text.grid(row = 1, column = 1)
         self.showText()
