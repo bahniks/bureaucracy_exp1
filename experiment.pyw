@@ -9,7 +9,7 @@ from gui import GUI
 
 from dishonesty import Dishonesty, DishonestyInstructions, DishonestyInstructions2, DishonestyInstructions3
 from dishonesty import DishonestyInstructions4, DishonestyInstructions5
-from intros import Intro, DilemmasIntro, ending
+from intros import Intro, ending
 from demo import Demographics
 from comments import Comments
 from hexaco import Hexaco, HexacoInstructions
