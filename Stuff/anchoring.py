@@ -22,7 +22,7 @@ intro2 = """V následující úloze budete odhadovat vlastnosti různých objekt
 
 
 
-items = [["subway", "vzdálenost stanic metra Muzeum a Hlavní nádraží"],
+items = [["subway", "vzdálenost tratě metra mezi stanicemi metra Muzeum a Hlavní nádraží"],
          ["soccer", "délka typického fotbalového hřiště"],
          ["tree", "výška nejvyššího stromu světa"],
          ["eiffel", "výška Eiffelovy věže"],
@@ -65,7 +65,7 @@ class Comparison(ExperimentFrame):
 
         self.question = "Je {} menší nebo větší než {} m?"
         self.text = Text(self, font = "helvetica 20", relief = "flat", background = "white",
-                         width = 80, height = 1, pady = 7, wrap = "word")
+                         width = 85, height = 1, pady = 7, wrap = "word")
         self.text.grid(row = 3, column = 1, columnspan = 2, sticky = S)
         self.text.tag_configure("center", justify = "center")
 
@@ -131,7 +131,7 @@ class Comparison(ExperimentFrame):
         self.starttime = perf_counter()
         self.time0 = self.starttime
         self.time = self.time0
-        duration = random.randint(5, 7)
+        duration = random.randint(5, 6)
         self.endtime = self.time + duration
 
         ends = [1,2,3]
