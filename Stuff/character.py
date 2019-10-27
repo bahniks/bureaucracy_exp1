@@ -15,12 +15,12 @@ from common import read_all
 
 intro = """
 Následující úkol se týká usuzování o druhých lidech.
-Postupně Vám popíšeme osm lidí. U každého člověka Vám ukážeme čtyři výroky, které o něm řekli jeho blízcí. Jedná se o výroky týkající se jeho aktivit, zvyků, ale i obyčejných zážitků a všedních činností. Následně vám popíšeme určitou situaci. Po vás budeme chtít, abyste na základě těchto informací zhodnotil(a) tohoto člověka a situaci, v níž se ocitl.
+Postupně Vám popíšeme osm lidí. U každého člověka Vám ukážeme čtyři výroky, které o něm řekli jeho blízcí. Jedná se o výroky týkající se jeho aktivit, zvyků, ale i obyčejných zážitků a všedních činností. Následně vám popíšeme určitou situaci. Po vás budeme chtít, abyste na základě těchto informací zhodnotil(a) postoj tohoto člověka k životnímu prostředí a jak se zachoval v oné situaci s ohledem na životní prostředí.
 """
 
 
 intro2 = """
-Nyní budete číst znovu informace o popsaných osmi lidech. Tentokrát nás však bude zajímat, jaký si myslíte, že má popsaný člověk postoj k ochraně životního prostředí.
+Nyní budete číst znovu informace o popsaných osmi lidech. Tentokrát nás však bude zajímat, jak byste popsaného člověka a jeho chování hodnotili.
 """
 
 CharacterIntro =(InstructionsFrame, {"text": intro, "height": 6})
@@ -50,7 +50,7 @@ immoral = [immoral[i] for i in immoral_random]
 immoral_short = [immoral_short[i] for i in immoral_random]
 random.shuffle(names)
 
-conditions = ["ff", "fg", "gg", "gf"]*(n_items//4)
+conditions = ["ff", "fg", "gg", "gf", "ff", "fg", "gg", "gf"]*(n_items//8)
 random.shuffle(conditions)
 
 texts = []
@@ -82,22 +82,26 @@ answers2 = ["Silně negativní", "Středně negativní", "Spíše negativní",
             "Spíše pozitivní", "Středně pozitivní", "Silně pozitivní"]
 
 
-class CharacterCommon(ExperimentFrame):
-    def __init__(self, root):
+class Character(ExperimentFrame):
+    def __init__(self, root, mode = "environment"):
         super().__init__(root)
+
+        self.mode = mode
+
+        self.file.write("Character {}\n".format(mode))
 
         self.nameVar = StringVar()
 
-        self.name = ttk.Label(self, font = "helvetica 14 bold", textvariable = self.nameVar,
+        self.name = ttk.Label(self, font = "helvetica 15 bold", textvariable = self.nameVar,
                               anchor = "center", background = "white")
         self.name.grid(row = 0, column = 2, pady = 15, sticky = S)
         
-        self.text = Text(self, font = "helvetica 14", relief = "flat", background = "white",
-                         width = 80, height = 20, pady = 7, wrap = "word")
+        self.text = Text(self, font = "helvetica 15", relief = "flat", background = "white",
+                         width = 80, height = 18, pady = 7, wrap = "word")
         self.text.grid(row = 1, column = 1, columnspan = 3)
-        self.text.tag_configure("bold", font = "helvetica 14 bold")
+        self.text.tag_configure("bold", font = "helvetica 15 bold")
         
-        ttk.Style().configure("TButton", font = "helvetica 15")
+        ttk.Style().configure("TButton", font = "helvetica 16")
         self.next = ttk.Button(self, text = "Pokračovat", command = self.answered, state = "disabled")
         self.next.grid(row = 4, column = 2)
 
@@ -131,26 +135,27 @@ class CharacterCommon(ExperimentFrame):
             self.newItem()
             self.t0 = perf_counter()
 
-
-
-class Character(CharacterCommon):
-    def __init__(self, root):
-        super().__init__(root)
-        self.file.write("Character\n")
-
     def initializeQuestions(self):
-        self.q1 = "Jak je podle Vašeho názoru morální to, že "
-        self.measure1 = Measure(self, self.q1, answers, "", "",
+        if self.mode == "environment":
+            self.q1 = "Jaký efekt na životní prostředí podle Vašeho názoru má, že "
+            ans = answers2
+        else:    
+            self.q1 = "Jak je podle Vašeho názoru morální to, že "
+            ans = answers
+        self.measure1 = Measure(self, self.q1, ans, "", "",
                                 function = self.enable, questionPosition = "above")
         self.measure1.grid(row = 2, column = 1, columnspan = 3, pady = 10)
 
-        self.q2 = "Jak je podle Vás AAA celkově morální nebo nemorální?"
-        self.measure2 = Measure(self, self.q2, answers, "", "",
+        if self.mode == "environment":
+            self.q2 = "Zkuste prosím odhadnout s využitím následující škály, jaký postoj má AAA k ochraně životního prostředí."
+        else:
+            self.q2 = "Jak je podle Vás AAA celkově morální nebo nemorální?"
+        self.measure2 = Measure(self, self.q2, ans, "", "",
                                 function = self.enable, questionPosition = "above")
         self.measure2.grid(row = 3, column = 1, columnspan = 3)
 
     def answered(self):
-        self.file.write("\t".join([self.id, self.measure1.answer.get(),
+        self.file.write("\t".join([self.id, self.mode, self.measure1.answer.get(),
                                    self.measure2.answer.get(), conditions[self.order],
                                    "\t".join(re.findall(r'"(.*?)"', texts[self.order])),
                                    str(perf_counter() - self.t0)]) + "\n")
@@ -163,42 +168,16 @@ class Character(CharacterCommon):
     def newItem(self):
         self.measure1.answer.set("")
         self.measure2.answer.set("")        
-        self.measure1.question["text"] = self.q1 + immoral_short[self.order].replace("AAA", names[self.order])
+        self.measure1.question["text"] = self.q1 + immoral_short[self.order].replace("AAA", names[self.order]) + "?"
         self.measure2.question["text"] = self.q2.replace("AAA", names[self.order])
         
-
-
-class GreenEvaluation(CharacterCommon):
-    def __init__(self, root):
-        super().__init__(root)
-        self.file.write("Green evaluation\n")
-
-    def initializeQuestions(self):
-        self.q1 = "Zkuste prosím odhadnout s využitím následující škály, jaký postoj má AAA k ochraně životního prostředí."
-        self.measure1 = Measure(self, self.q1, answers2, "", "",
-                                function = self.enable, questionPosition = "above")
-        self.measure1.grid(row = 2, column = 1, columnspan = 3, pady = 10)
-
-    def answered(self):
-        self.file.write("\t".join([self.id, self.measure1.answer.get(), conditions[self.order],
-                                   "\t".join(re.findall(r'"(.*?)"', texts[self.order])),
-                                   str(perf_counter() - self.t0)]) + "\n")
-        self.proceed()        
-
-    def enable(self):
-        if self.measure1.answer.get():
-            self.next["state"] = "!disabled"
-
-    def newItem(self):
-        self.measure1.answer.set("")    
-        self.measure1.question["text"] = self.q1.replace("AAA", names[self.order])
 
 
 
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.getcwd()))
     GUI([CharacterIntro,
-         Character,
+         (Character, {"mode": "environment"}),
          CharacterIntro2,
-         GreenEvaluation
+         (Character, {"mode": "character"})       
          ])
