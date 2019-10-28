@@ -1,119 +1,119 @@
-Mléko
-Muž v pondělí koupí litr mléka. Jaká je pravděpodobnost, že mléko bude od středy za týden zkažené?
-Muž v pondělí koupí litr mléka. V úterý na 30 minut vypadne proud. Jaká je pravděpodobnost, že mléko bude od středy za týden zkažené?
-Muž v pondělí koupil litr mléka. V úterý na 30 minut vypadne proud. Za týden od středy bylo mléko zkažené. Jaká je pravděpodobnost, že zkažení mléka způsobil úterní výpadek proudu?
-Muž v pondělí koupí litr mléka.  V úterý na 30 minut vypadne proud. Jaká je šance, že úterní výpadek proudu způsobí, že mléko bude od středy za týden zkažené?
+Milk
+Muž v pondělí koupí litr čerstvého mléka. Jaká je pravděpodobnost, že mléko bude od středy za týden zkažené?
+Muž v pondělí koupí litr čerstvého mléka. V úterý na 30 minut vypadne proud. Jaká je pravděpodobnost, že mléko bude od středy za týden zkažené?
+Muž v pondělí koupil čerstvého litr mléka. V úterý na 30 minut vypadne proud. Za týden od středy bylo mléko zkažené. Jaká je pravděpodobnost, že zkažení mléka způsobil právě úterní výpadek proudu?
+Muž v pondělí koupí litr čerstvého mléka. V úterý na 30 minut vypadne proud. Jaká je pravděpodobnost, že úterní výpadek proudu způsobí, že mléko bude od středy za týden zkažené?
 
-Telefon
-Rodiče 35 leté ženy bydlí na druhém kraji republiky. Jaká je pravděpodobnost, že se žena v dubnu nespojí se svými rodiči?
-Rodiče 35 leté ženy bydlí na druhém kraji republiky. Tatáž žena ztratí 1. dubna mobilní telefon. Jaká je pravděpodobnost, že se žena v dubnu nespojí se svými rodiči?
-Rodiče 35 leté ženy bydlí na druhém kraji republiky. Tatáž žena ztratila prvního dubna mobilní telefon. Žena se během dubna s rodiči nespojila. Jaká je pravděpodobnost, že se žena v dubnu s rodiči nespojila kvůli ztrátě telefonu?
-Rodiče 35 leté ženy bydlí na druhém kraji republiky. Tatáž žena ztratí prvního dubna mobilní telefon. Jaká je šance, že ztráta telefonu způsobí, že se žena v dubnu nespojí se svými rodiči?
+Telephone
+Rodiče 35 leté ženy bydlí na druhém konci republiky. Jaká je pravděpodobnost, že žena v dubnu nebude mluvit se svými rodiči?
+Rodiče 35 leté ženy bydlí na druhém konci republiky. Tatáž žena ztratí 1. dubna mobilní telefon. Jaká je pravděpodobnost, že žena v dubnu nebude mluvit se svými rodiči?
+Rodiče 35 leté ženy bydlí na druhém konci republiky. Tatáž žena ztratila prvního dubna mobilní telefon. Žena během dubnu nemluvila se svými rodiči. Jaká je pravděpodobnost, že to, že žena v dubnu s rodiči nemluvila, bylo způsobeno právě ztrátou telefonu?
+Rodiče 35 leté ženy bydlí na druhém konci republiky. Tatáž žena ztratí prvního dubna mobilní telefon. Jaká je pravděpodobnost, že ztráta telefonu způsobí, že žena v dubnu nebude mluvit se svými rodiči?
 
-Pivovar
-Pivovar vlastní vůdce na trhu mezi světlými pivy. Jaká je pravděpodobnost, že totéž pivo zvýší příští rok svůj podíl na trhu?
-Pivovar vlastní vůdce na trhu mezi světlými pivy. Ten samý pivovar navýší reklamní rozpočet pro své světlé pivo o 3%. Jaká je pravděpodobnost, že totéž pivo zvýší příští rok svůj podíl na trhu?
-Pivovar vlastní vůdce na trhu mezi světlými pivy. Ten samý pivovar navýší reklamní rozpočet pro své světlé pivo o 3%. Následující rok pivo zvýšilo svůj podíl na trhu. Jaká je pravděpodobnost, že zvýšení podílu na trhu piva bylo způsobeno zmíněným navýšením reklamního rozpočtu o 3%?
-Pivovar vlastní vůdce na trhu mezi světlými pivy. Ten samý pivovar navýší reklamní rozpočet pro své světlé pivo o 3%. Jaká je šance, že navýšení reklamního rozpočtu způsobí, že totéž pivo zvýší příští rok svůj podíl na trhu?
+Brewery
+Pivovar vlastní nejprodávanější značku světlého piva. Jaká je pravděpodobnost, že totéž pivo bude mít příští rok vyšší podíl na trhu než tento?
+Pivovar vlastní nejprodávanější značku světlého piva. Ten samý pivovar navýší rozpočet na reklamu svého světlého piva o 3%. že totéž pivo bude mít příští rok vyšší podíl na trhu než tento?
+Pivovar vlastní nejprodávanější značku světlého piva. Ten samý pivovar navýší rozpočet na reklamu svého světlého piva o 3%. Následující rok pivo zvýšilo svůj podíl na trhu. Jaká je pravděpodobnost, že zvýšení podílu piva na trhu bylo způsobeno právě zmíněným navýšením reklamního rozpočtu o 3%?
+Pivovar vlastní nejprodávanější značku světlého piva. Ten samý pivovar navýší rozpočet na reklamu svého světlého piva o 3%. Jaká je pravděpodobnost, že navýšení reklamního rozpočtu způsobí, že totéž pivo bude mít příští rok vyšší podíl na trhu než tento?
 
-Vinice
-Moravská vinice se specializuje ve víně francouzského stylu. Jaká je pravděpodobnost, že si víno povede dobře v slepém testování francouzskými kritiky?
-Moravská vinice se specializuje ve víně francouzského stylu. Vinice dováží nejlepší půdu z Francie. Jaká je pravděpodobnost, že si víno povede dobře ve slepém testování francouzskými kritiky?
-Moravská vinice se specializuje ve víně francouzského stylu. Vinice dováží nejlepší půdu z Francie. Ve slepém testu vín francouzskými kritiky víno obdrželo dobré výsledky. Jaká je pravděpodobnost, že dobrých výsledků vína bylo dosaženo díky dovozu půdy z Francie?
-Moravská vinice se specializuje ve víně francouzského stylu. Vinice dováží nejlepší půdu z Francie. Jaká je šance, že dovoz nejlepší půdy způsobí, že si víno povede dobře v slepém testování francouzskými kritiky?
+Wineyard
+Moravská vinice se specializuje na víno francouzského stylu. Jaká je pravděpodobnost, že si víno povede dobře ve slepém testování francouzskými kritiky?
+Moravská vinice se specializuje na víno francouzského stylu. Vinice dováží nejlepší půdu z Francie. Jaká je pravděpodobnost, že si víno povede dobře ve slepém testování francouzskými kritiky?
+Moravská vinice se specializuje na víno francouzského stylu. Vinice dováží nejlepší půdu z Francie. Ve slepém testu vín francouzskými kritiky víno obdrželo dobré výsledky. Jaká je pravděpodobnost, že dobré výsledky vína byly způsobeny právě dovozem půdy z Francie?
+Moravská vinice se specializuje na víno francouzského stylu. Vinice dováží nejlepší půdu z Francie. Jaká je pravděpodobnost, že dovoz nejlepší půdy způsobí, že si víno povede dobře ve slepém testování francouzskými kritiky?
 
-Dieta
-20 letý muž je studentem univerzity. Jaká je pravděpodobnost, že muž vydrží rok bez rýmy?
-20 letý muž je studentem univerzity. Drží probiotickou dietu. Jaká je pravděpodobnost, že muž vydrží rok bez rýmy?
-20 letý muž je studentem univerzity. Drží probiotickou dietu. Muž za celý rok neprodělal rýmu. Jaká je pravděpodobnost, že roční absence rýmy byla způsobena tím, že muž držel probiotickou dietu?
-20 letý muž je studentem univerzity. Drží probiotickou dietu. Jaká je šance, že držení probiotické diety způsobí, že muž vydrží rok bez rýmy?
+Diet
+20 letý muž je studentem univerzity. Jaká je pravděpodobnost, že muž rok neonemocní chřipkou?
+20 letý muž je studentem univerzity. Drží probiotickou dietu. Jaká je pravděpodobnost, že muž rok neonemocní chřipkou?
+20 letý muž je studentem univerzity. Drží probiotickou dietu. Muž za celý rok neonemocněl chřipkou. Jaká je pravděpodobnost, že roční neonemocnění chřipkou bylo způsobena právě tím, že muž držel probiotickou dietu?
+20 letý muž je studentem univerzity. Drží probiotickou dietu. Jaká je pravděpodobnost, že držení probiotické diety způsobí, že rok neonemocní chřipkou?
 
-Realitní agent
-Realitní agent se pokouší prodat dům, jenž koupil před rokem. Jaká je pravděpodobnost, že až dům prodá, bude mít z prodeje alespoň 2% profit?
-Realitní agent se pokouší prodat dům, jenž koupil před rokem. Přemaluje všechny ložnice v domě. Jaká je pravděpodobnost, že až dům prodá, bude mít z prodeje alespoň 2% profit?
-Realitní agent se pokouší prodat dům, jenž koupil před rokem. Přemaluje všechny ložnice v domě. Vzápětí muž dům prodal s profitem 2%. Jaká je pravděpodobnost, že profit byl realizován díky zmíněnému přemalování ložnic?
-Realitní agent se pokouší prodat dům, jenž koupil před rokem. Přemaluje všechny ložnice v domě. Jaká je šance, že přemalování ložnic způsobí, že až dům prodá bude mít z prodeje alespoň 2% profit?
+Realtor
+Realitní agent se pokouší prodat dům, jenž koupil před rokem. Jaká je pravděpodobnost, že až dům prodá, bude mít z prodeje více než 2% zisk?
+Realitní agent se pokouší prodat dům, jenž koupil před rokem. Přemaluje všechny ložnice v domě. Jaká je pravděpodobnost, že až dům prodá, bude mít z prodeje více než 2% zisk?
+Realitní agent se pokouší prodat dům, jenž koupil před rokem. Přemaluje všechny ložnice v domě. Vzápětí muž dům prodal s více než 2% ziskem. Jaká je pravděpodobnost, že právě přemalování ložnic způsobilo realizaci více než 2% zisku v rámci prodeje domu?
+Realitní agent se pokouší prodat dům, jenž koupil před rokem. Přemaluje všechny ložnice v domě. Jaká je pravděpodobnost, že přemalování ložnic způsobí, že až dům prodá bude mít z prodeje více než 2% zisk?
 
-Vysoká škola/zaměstnavatel
+Vitae
 Muž vylepšuje svůj životopis a pokouší se najít si práci. Jaká je pravděpodobnost, že si najde práci mezi 15 nejlepšími zaměstnavateli v zemi?
 Muž vylepšuje svůj životopis a pokouší se najít si práci. Jako dobrovolník se zúčastní charitativního prodeje Světlušky. Jaká je pravděpodobnost, že si najde práci mezi 15 nejlepšími zaměstnavateli v zemi?
-Muž se vylepšuje svůj životopis a pokouší se najít si práci. Jako dobrovolník se zúčastní charitativního prodeje Světlušky. Muži se podaří získat práci v jedné z 15 nejlepších firem na trhu. Jaká je pravděpodobnost, že muž získal práci u jednoho z nejlepších zaměstnavatelů díky účasti na charitativním prodeji?
-Muž se vylepšuje svůj životopis a pokouší se najít si práci. Jako dobrovolník se zúčastní charitativního prodeje Světlušky. Jaká je šance, že účast na prodeji pro Světlušku způsobí, že si najde práci mezi 15 nejlepšími zaměstnavateli v zemi?
+Muž vylepšuje svůj životopis a pokouší se najít si práci. Jako dobrovolník se zúčastní charitativního prodeje Světlušky. Muži se podaří získat práci v jedné z 15 nejlepších firem na trhu. Jaká je pravděpodobnost, že právě účast na charitativním prodeji způsobila, že muž získal práci u jednoho z 15 nejlepších zaměstnavatelů?
+Muž vylepšuje svůj životopis a pokouší se najít si práci. Jako dobrovolník se zúčastní charitativního prodeje Světlušky. Jaká je pravděpodobnost, že účast na prodeji pro Světlušku způsobí, že si najde práci mezi 15 nejlepšími zaměstnavateli v zemi?
 
-Bunda
-Mladý muž je zdravý středoškolský student. Jaká je pravděpodobnost, že dostane během této zimy chřipku?
-Mladý muž je zdravý středoškolský student. Během hustého deště vyjde ven bez bundy. Jaká je pravděpodobnost, že dostane během této zimy chřipku?
-Mladý muž je zdravý středoškolský student. Během hustého deště vyjde ven bez bundy. Během této zimy muž dostane chřipku. Jaká je pravděpodobnost, že muž chřipku dostal kvůli zmíněnému venkovnímu pohybu v dešti bez bundy?
-Mladý muž je zdravý středoškolský student. Během hustého deště vyjde ven bez bundy. Jaká je šance, že pohyb venku bez bundy způsobí, že dostane během této zimy chřipku?
+Jacket
+Mladý muž je zdravý středoškolský student. Jaká je pravděpodobnost, že dostane někdy během této zimy chřipku?
+Mladý muž je zdravý středoškolský student. Během hustého deště vyjde ven bez bundy. Jaká je pravděpodobnost, že dostane někdy během této zimy chřipku?
+Mladý muž je zdravý středoškolský student. Během hustého deště vyšel ven bez bundy. Během této samé zimy muž dostal chřipku. Jaká je pravděpodobnost, že právě pohyb venku bez bundy způsobil, že muž během této zimy dostal chřipku?
+Mladý muž je zdravý středoškolský student. Během hustého deště vyjde ven bez bundy. Jaká je pravděpodobnost, že pohyb venku bez bundy způsobí, že dostane někdy během této zimy chřipku?
 
-Benzín
+Gasoline
 Žena má Hondu z roku 2005. Jaká je pravděpodobnost, že automobil bude mít během příštího roku poruchu?
-Žena má Hondu z roku 2005. Natankuje benzín nejnižší třídy. Jaká je pravděpodobnost, že automobil bude mít během příštího roku poruchu?
-Žena má Hondu z roku 2005. Natankuje benzín nejnižší třídy. Následující rok automobil dostane poruchu. Jaká je pravděpodobnost, že porucha byla způsobena natankováním benzínu nejnižší třídy?
-Žena má Hondu z roku 2005. Natankuje benzín nejnižší třídy. Jaká je šance, že tankování benzínu nejnižší třídy způsobí, že automobil bude mít během příštího roku poruchu?
+Žena má Hondu z roku 2005. Tankuje benzín nejnižší kvality. Jaká je pravděpodobnost, že automobil bude mít během příštího roku poruchu?
+Žena má Hondu z roku 2005. Tankuje benzín nejnižší kvality. Následující rok automobil dostane poruchu. Jaká je pravděpodobnost, že porucha byla způsobena právě tankováním benzínu nejnižší kvality?
+Žena má Hondu z roku 2005. Tankuje benzín nejnižší kvality. Jaká je pravděpodobnost, že tankování benzínu nejnižší kvality způsobí, že automobil bude mít během příštího roku poruchu?
 
-Kouření
-30 letá žena chce přestat kouřit. Jaká je pravděpodobnost, že za rok nebude kouřit?
-30 letá žena chce přestat kouřit. Zúčastní se hypnotické terapie. Jaká je pravděpodobnost, že za rok nebude kouřit?
-30 letá žena chce přestat kouřit. Zúčastní se hypnotické terapie. Další rok žena přestala kouřit. Jaká je pravděpodobnost, že žena přestala kouřit díky návštěvě hypnoterapie?
-30 letá žena chce přestat kouřit. Zúčastní se hypnotické terapie. Jaká je šance, že hypnotická terapie způsobí, že za rok nebude kouřit?
+Smoking
+30letá žena chce přestat kouřit. Jaká je pravděpodobnost, že za rok nebude kouřit?
+30letá žena chce přestat kouřit. Zúčastní se hypnotické terapie. Jaká je pravděpodobnost, že za rok nebude kouřit?
+30letá žena chce přestat kouřit. Zúčastní se hypnotické terapie. Během roku žena přestala kouřit. Jaká je pravděpodobnost, že právě hypnoterapie způsobila, že žena přestala kouřit?
+30letá žena chce přestat kouřit. Zúčastní se hypnotické terapie. Jaká je pravděpodobnost, že hypnotická terapie způsobí, že za rok nebude kouřit?
 
 Baseball
-Hráč baseballu odpálil během sezony 2019 20 homerunů. Jaká je pravděpodobnost, že v sezoně 2020 odpálí více než 20 homerunů?
-Hráč baseballu odpálil během sezony 2019 20 homerunů. Po sezoně používal dvakrát týdně počítačový program určený k procvičování zraku. Jaká je pravděpodobnost, že v sezoně 2020 odpálí více než 20 homerunů?
-Hráč baseballu odpálil během sezony 2019 20 homerunů. Po sezoně používal dvakrát týdně počítačový program určený k procvičování zraku. V sezoně 2020 odpálil 22 homerunů. Jaká je pravděpodobnost, že zlepšení bylo způsobeno užíváním programu?
-Hráč baseballu odpálil během sezony 2019 20 homerunů. Po sezoně používal dvakrát týdně počítačový program určený k procvičování zraku. Jaká je šance, že užití programu způsobí, že v sezoně 2020 odpálí více než 20 homerunů?
+Hráč baseballu odpálil během minulé sezony 20 homerunů. Jaká je pravděpodobnost, že v následující sezoně odpálí více než 20 homerunů?
+Hráč baseballu odpálil během minulé sezony 20 homerunů. Po sezoně používal dvakrát týdně počítačový program určený ke zlepšení ostrosti zraku. Jaká je pravděpodobnost, že v následující sezoně odpálí více než 20 homerunů?
+Hráč baseballu odpálil během minulé sezony 20 homerunů. Po sezoně používal dvakrát týdně počítačový program určený ke zlepšení ostrosti zraku. V následující sezoně odpálil více než 20 homerunů. Jaká je pravděpodobnost, že odpálení více homerunů bylo způsobeno právě užíváním programu?
+Hráč baseballu odpálil během minulé sezony 20 homerunů. Po sezoně používal dvakrát týdně počítačový program určený ke zlepšení ostrosti zraku. Jaká je pravděpodobnost, že užití programu způsobí, že během následující sezony odpálí více než 20 homerunů?
 
-Turista
+Turist
 Turista si fotí sochu svobody z paluby výletní lodi. Jaká je pravděpodobnost, že fotografie bude rozmazaná?
-Turista si fotí sochu svobody z paluby výletní lodi. V momentě kdy fotografii pořizuje zafouká slabý vítr. Jaká je pravděpodobnost, že fotografie bude rozmazaná?
-Turista si fotí sochu svobody z paluby výletní lodi. V momentě kdy fotografii pořizuje zafouká slabý vítr. Fotografie byla rozmazaná. Jaká je pravděpodobnost, že fotografie byla rozmazaná kvůli zmíněnému zafoukání větru?
-Turista si fotí sochu svobody z paluby výletní lodi. V momentě kdy fotografii pořizuje zafouká slabý vítr. Jaká je šance, že vánek způsobí, že fotografie bude rozmazaná?
+Turista si fotí sochu svobody z paluby výletní lodi. V momentě, kdy fotografii pořizuje, zafouká slabý vítr. Jaká je pravděpodobnost, že fotografie bude rozmazaná?
+Turista si fotí sochu svobody z paluby výletní lodi. V momentě, kdy fotografii pořizuje, zafouká slabý vítr. Fotografie byla rozmazaná. Jaká je pravděpodobnost, že rozmazání fotografie bylo způsobeno právě zmíněným zafoukáním větru?
+Turista si fotí sochu svobody z paluby výletní lodi. V momentě, kdy fotografii pořizuje, zafouká slabý vítr. Jaká je pravděpodobnost, že vánek způsobí, že fotografie bude rozmazaná?
 
-Politik
-Neznámý politik kandidující za stranu, jež vyhrála minulé volby, se pokouší být zvolen do poslanecké sněmovny. Jaká je pravděpodobnost, že u voleb 2021 uspěje?
-Neznámý politik kandidující za stranu, jež vyhrála minulé volby, se pokouší být zvolen do poslanecké sněmovny. Na podzim roku 2019 uskuteční v rámci volební kampaně cestu do Benešova. Jaká je pravděpodobnost, že u voleb 2021 uspěje?
-Neznámý politik kandidující za stranu, jež vyhrála minulé volby, se pokouší být zvolen do poslanecké sněmovny. Na podzim roku 2019 uskuteční v rámci kampaně cestu do Benešova. Ve volbách 2021 je tentýž politik zvolen do poslanecké sněmovny. Jaká je pravděpodobnost, že politik byl zvolen díky volební cestě do Benešova v roce 2019?
-Neznámý politik kandidující za stranu, jež vyhrála minulé volby, se pokouší být zvolen do poslanecké sněmovny. Na podzim roku 2019 uskuteční v rámci volební kampaně cestu do Benešova. Jaká je pravděpodobnost, že volební cesta do Benešova způsobí, že u voleb 2021 uspěje?
+Politician
+Neznámý politik kandidující za stranu, jež vyhrála minulé volby, se pokouší být zvolen do poslanecké sněmovny. Jaká je pravděpodobnost, že u voleb 2018 uspěje?
+Neznámý politik kandidující za stranu, jež vyhrála minulé volby, se pokouší být zvolen do poslanecké sněmovny. Na podzim roku 2017 uskuteční v rámci volební kampaně cestu do Benešova. Jaká je pravděpodobnost, že u voleb 2018 uspěje?
+Neznámý politik kandidující za stranu, jež vyhrála minulé volby, se pokouší být zvolen do poslanecké sněmovny. Na podzim roku 2017 uskuteční v rámci kampaně cestu do Benešova. Ve volbách 2018 byl tentýž politik zvolen do poslanecké sněmovny. Jaká je pravděpodobnost, že politik byl zvolen právě díky volební cestě do Benešova v roce 2017?
+Neznámý politik kandidující za stranu, jež vyhrála minulé volby, se pokouší být zvolen do poslanecké sněmovny. Na podzim roku 2017 uskuteční v rámci volební kampaně cestu do Benešova. Jaká je pravděpodobnost, že volební cesta do Benešova způsobí, že u voleb 2018 uspěje?
  
-Hokej
+Hockey
 Hokejový tým hraje první ligu. Jaká je pravděpodobnost, že následující zápas tým vyhraje?
 Hokejový tým hraje první ligu. Hráči týmu den před zápasem absolvují masáž od jednoho z nejlepších fyzioterapeutů v republice. Jaká je pravděpodobnost, že následující zápas tým vyhraje?
-Hokejový tým hraje první ligu. Hráči týmu den před zápasem absolvují masáž od jednoho z nejlepších fyzioterapeutů v republice. V následujícím zápase tým zvítězil. Jaká je pravděpodobnost, že tým v zápase zvítězil díky absolvování zmíněné masáže?
+Hokejový tým hraje první ligu. Hráči týmu den před zápasem absolvují masáž od jednoho z nejlepších fyzioterapeutů v republice. V následujícím zápase tým zvítězil. Jaká je pravděpodobnost, že tým v zápase zvítězil právě díky absolvování zmíněné masáže?
 Hokejový tým hraje první ligu. Hráči týmu den před zápasem absolvují masáž od jednoho z nejlepších fyzioterapeutů v republice. Jaká je pravděpodobnost, že masáže způsobí, že v následujícím zápase tým vyhraje?
  
-Parkování
-Radnice velkoměsta chce snížit emise v oblasti města. Jaká je pravděpodobnost, že emise budou během následujícího roku sníženy ze současných 600 ppm na 550 ppm (v přirozeném prostředí obvykle kolem 400 ppm)?
-Radnice velkoměsta chce snížit emise v oblasti města. Radnice vydá vyhlášku, že všechny hybridní vozy mohou ve městě parkovat zdarma. Jaká je pravděpodobnost, že emise budou během následujícího roku sníženy ze současných 600 ppm na 550 ppm (v přirozeném prostředí obvykle kolem 400 ppm)?
-Radnice velkoměsta chce snížit emise v oblasti města. Radnice vydá vyhlášku, že všechny hybridní vozy mohou ve městě parkovat zdarma. Během následujícího roku byla snížena hladina emisí ve městě ze 600 ppm na 550 ppm (v přirozeném prostředí obvykle 400 ppm). Jaká je pravděpodobnost, že ke snížení emisí o 50 ppm došlo díky zmíněné vyhlášce radnice o parkování zdarma?
-Radnice velkoměsta chce snížit emise v oblasti města. Radnice vydá vyhlášku, že všechny hybridní vozy mohou ve městě parkovat zdarma. Jaká je šance, že vyhláška způsobí, že emise budou během následujícího roku sníženy z 600 ppm na 550 ppm (v přirozeném prostředí obvykle 400 ppm)?
+Parking
+Radnice velkoměsta chce snížit emise v oblasti města. Jaká je pravděpodobnost, že emise budou během následujícího roku sníženy ze současných 600 ppm na méně než 550 ppm (mimo město obvykle kolem 400 ppm)?
+Radnice velkoměsta chce snížit emise v oblasti města. Radnice vydá vyhlášku, že všechny hybridní vozy mohou ve městě parkovat zdarma. Jaká je pravděpodobnost, že emise budou během následujícího roku sníženy ze současných 600 ppm na méně než 550 ppm (mimo město obvykle kolem 400 ppm)?
+Radnice velkoměsta chce snížit emise v oblasti města. Radnice vydá vyhlášku, že všechny hybridní vozy mohou ve městě parkovat zdarma. Během následujícího roku byla snížena hladina emisí ve městě z 600 ppm pod 550 ppm (mimo město obvykle kolem 400 ppm). Jaká je pravděpodobnost, že snížení emisí ve městě bylo způsobeno právě zmíněnou vyhláškou radnice?
+Radnice velkoměsta chce snížit emise v oblasti města. Radnice vydá vyhlášku, že všechny hybridní vozy mohou ve městě parkovat zdarma. Jaká je pravděpodobnost, že vyhláška způsobí, že emise budou během následujícího roku sníženy z 600 ppm na méně než 550 ppm (mimo město obvykle kolem 400 ppm)?
 
-Neziskovka
-Nezisková organizace se zaměřuje na zvyšování gramotnosti v zemích třetího světa. Jaká je pravděpodobnost, že během 3 let se zvýší gramotnost v Etiopii z 50% na 55%?
-Nezisková organizace se zaměřuje na zvyšování gramotnosti v zemích třetího světa. Populární český zpěvák podpoří kampaň organizace na financování výstavby školy v Etiopii. Jaká je pravděpodobnost, že během 3 let se zvýší gramotnost v Etiopii z 50% na 55%?
-Nezisková organizace se zaměřuje na zvyšování gramotnosti v zemích třetího světa. Populární český zpěvák podpořil kampaň organizace na financování výstavby školy v Etiopii. Během následujících 3 let byla zvýšena gramotnost v Etiopii z 50% na 55%. Jaká je pravděpodobnost, že za zvýšení gramotnosti může zpěvákova podpora výstavby školy?
-Nezisková organizace se zaměřuje na zvyšování gramotnosti v zemích třetího světa. Populární český zpěvák podpoří kampaň organizace na financování výstavby školy v Etiopii. Jaká je šance, že zpěvákova podpora kampaně způsobí, že během 3 let se zvýší gramotnost v Etiopii z 50% na 55%?
+Charity
+Nezisková organizace se zaměřuje na zvyšování gramotnosti v zemích třetího světa. Jaká je pravděpodobnost, že během 3 let se zvýší gramotnost v Etiopii z 50% na více než 55%?
+Nezisková organizace se zaměřuje na zvyšování gramotnosti v zemích třetího světa. Populární český zpěvák podpoří kampaň organizace na financování výstavby školy v Etiopii. Jaká je pravděpodobnost, že během 3 let se zvýší gramotnost v Etiopii z 50% na více než 55%?
+Nezisková organizace se zaměřuje na zvyšování gramotnosti v zemích třetího světa. Populární český zpěvák podpořil kampaň organizace na financování výstavby školy v Etiopii. Během následujících 3 let byla zvýšena gramotnost v Etiopii z 50% na více než 55%. Jaká je pravděpodobnost, že za zvýšení gramotnosti může právě zpěvákova podpora výstavby školy?
+Nezisková organizace se zaměřuje na zvyšování gramotnosti v zemích třetího světa. Populární český zpěvák podpoří kampaň organizace na financování výstavby školy v Etiopii. Jaká je pravděpodobnost, že zpěvákova podpora kampaně způsobí, že během 3 let se zvýší gramotnost v Etiopii z 50% na více než 55%?
 
-Policie
+Police
 Pražská policie bojuje s kriminalitou. Jaká je pravděpodobnost, že v následujícím čtvrtletí dojde k poklesu kriminality?
 Pražská policie bojuje s kriminalitou. Policie rozšíří svůj personál o 2 strážníky. Jaká je pravděpodobnost, že v následujícím čtvrtletí dojde k poklesu kriminality?
-Pražská policie bojuje s kriminalitou. Policie rozšíří svůj personál o 2 strážníky. V následujícím čtvrtletí dojde ke snížení kriminality ve městě. Jaká je pravděpodobnost, že ke snížení kriminality došlo vlivem přidání dvou strážníků?
-Pražská policie bojuje s kriminalitou. Policie rozšíří svůj personál o 2 strážníky. Jaká je šance, že přidání dvou strážníků způsobí, že v následujícím čtvrtletí dojde k poklesu kriminality?
+Pražská policie bojuje s kriminalitou. Policie rozšíří svůj personál o 2 strážníky. V následujícím čtvrtletí dojde ke snížení kriminality ve městě. Jaká je pravděpodobnost, že pokles kriminality byl způsoben právě přidáním dvou strážníků?
+Pražská policie bojuje s kriminalitou. Policie rozšíří svůj personál o 2 strážníky. Jaká je pravděpodobnost, že přidání dvou strážníků způsobí, že v následujícím čtvrtletí dojde k poklesu kriminality?
 
-Autobus
-Muž je zkušený 50 letý řidič autobusu. Jaká je pravděpodobnost, že během 6 hodin jízdy se řidiči nedostaví únava?
-Muž je zkušený, 50 letý řidič autobusu. Během cesty požije energetický nápoj. Jaká je pravděpodobnost, že během 6 hodin jízdy se řidiči nedostaví únava?
-Muž je zkušený, 50 letý řidič autobusu. Během cesty požije energetický nápoj. Během 6 hodin jízdy se u řidiče neprojevila únava. Jaká je pravděpodobnost, že to, že řidič vydržel po dobu celé jízdy čerstvý bylo způsobeno konzumací energetického nápoje?
-Muž je zkušený, 50 letý řidič autobusu. Během cesty požije energetický nápoj. Jaká je šance, že užití energetického nápoje způsobí, že během 6 hodin jízdy se řidiči nedostaví únava?
+Bus
+Muž je zkušený 50letý řidič autobusu. Jaká je pravděpodobnost, že během 6 hodin jízdy se řidiči nedostaví únava?
+Muž je zkušený 50letý řidič autobusu. Během cesty se napije Coca Coly. Jaká je pravděpodobnost, že během 6 hodin jízdy se řidiči nedostaví únava?
+Muž je zkušený 50letý řidič autobusu. Během cesty se napil Coca Coly. V průběhu 6 hodin jízdy se u řidiče neprojevila únava. Jaká je pravděpodobnost, že to, že řidič vydržel po dobu celé jízdy čerstvý bylo způsobeno právě konzumací Coca Coly?
+Muž je zkušený 50letý řidič autobusu. Během cesty se napije Coca Coly. Jaká je pravděpodobnost, že užití Coca Coly způsobí, že v průběhu 6 hodin jízdy se řidiči nedostaví únava?
 
-Kocovina
-30 letý muž na firemním večírku vypije 1,5 láhve bílého vína. Jaká je pravděpodobnost, že jej nebude bolet hlava?
-30 letý muž na firemním večírku vypije 1,5 láhve bílého vína. Během večeru vypije sklenici vody. Jaká je pravděpodobnost, že jej další ráno nebude bolet hlava?
-30 letý muž na firemním večírku vypije 1,5 láhve bílého vína. Během večeru vypije sklenici vody. Muž se ráno probudí bez kocoviny. Jaká je pravděpodobnost, že absence bolesti hlavy byla způsobena vypitím sklenice vody?
-30 letý muž na firemním večírku vypije 1,5 láhve bílého vína. Během večeru vypije sklenici vody. Jaká je šance, že vypití sklenice vody způsobí, že jej nebude další ráno bolet hlava?
+Hangover
+30letý muž na firemním večírku vypije 1 láhev bílého vína. Jaká je pravděpodobnost, že jej nebude bolet hlava?
+30letý muž na firemním večírku vypije 1 láhev bílého vína. Během večeru vypije sklenici vody. Jaká je pravděpodobnost, že jej další ráno nebude bolet hlava?
+30letý muž na firemním večírku vypije 1 láhev bílého vína. Během večeru vypije sklenici vody. Muže ráno nebolí hlava. Jaká je pravděpodobnost, že absence bolesti hlavy byla způsobena právě vypitím sklenice vody?
+30letý muž na firemním večírku vypije 1 láhev bílého vína. Během večeru vypije sklenici vody. Jaká je pravděpodobnost, že vypití sklenice vody způsobí, že jej nebude další ráno bolet hlava?
 
-Kino
-V kině je zákaz konzumace potravin zakoupených mimo prostory kina. Jaká je pravděpodobnost, že alespoň 20 lidí si do kina přinese vlastní jídlo?
-V kině je zákaz konzumace potravin zakoupených mimo prostory kina. Kino zruší prodej müsli tyčinek. Jaká je pravděpodobnost, že alespoň 20 lidí si do kina přinese vlastní jídlo?
-V kině je zákaz konzumace potravin zakoupených mimo prostory kina. Kino zruší prodej müsli tyčinek. Při promítání filmu si 25 lidí potají přineslo do kina vlastní jídlo. Jaká je pravděpodobnost, že 25 lidí propašovalo do kina vlastní jídlo, kvůli zrušení prodeje müsli tyčinek v kině?
-V kině je zákaz konzumace potravin zakoupených mimo prostory kina. Kino zruší prodej müsli tyčinek. Jaká je šance, že zrušení prodeje müsli tyčinek způsobí, že alespoň 20 lidí si do kina potají přinese vlastní jídlo?
+Cinema
+V kině je zákaz konzumace potravin zakoupených mimo prostory kina. Jaká je pravděpodobnost, že alespoň 10 lidí si do kina potají přinese vlastní jídlo?
+V kině je zákaz konzumace potravin zakoupených mimo prostory kina. Kino zruší prodej müsli tyčinek. Jaká je pravděpodobnost, že alespoň 10 lidí si do kina potají přinese vlastní jídlo?
+V kině je zákaz konzumace potravin zakoupených mimo prostory kina. Kino zruší prodej müsli tyčinek. Při promítání filmu si 10 lidí potají přineslo do kina vlastní jídlo. Jaká je pravděpodobnost, že právě zrušení prodeje müsli tyčinek způsobilo, že si 10 lidí potají přineslo do kina vlastní jídlo?
+V kině je zákaz konzumace potravin zakoupených mimo prostory kina. Kino zruší prodej müsli tyčinek. Jaká je pravděpodobnost, že zrušení prodeje müsli tyčinek způsobí, že alespoň 10 lidí si do kina potají přinese vlastní jídlo?

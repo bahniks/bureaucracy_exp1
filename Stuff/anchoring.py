@@ -13,7 +13,7 @@ from gui import GUI
 
 intro1 = """V následující úloze budete srovnávat vlasnosti různých objektů s náhodnými hodnotami.
 
-Náhodné hodnoty jsou generovány po zmáčknutí tlačítka 'Znáhodnit' a jsou určeny hodnotami na zobrazených "kolech". Tyto hodnoty budou v rozsahu od 1 do 1000. S hodnotou 1000 budete srovnávat objekt, pokud bude na náhodném generátoru zobrazeno "000".
+Náhodné hodnoty jsou generovány po zmáčknutí tlačítka 'Znáhodnit' a jsou určeny hodnotami zobrazených na třech "kotoučích" s číslicemi. Tyto hodnoty budou v rozsahu od 1 do 1000. S hodnotou 1000 budete srovnávat objekt, pokud bude na všech kotoučích '0'.
 """
 
 

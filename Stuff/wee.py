@@ -19,6 +19,8 @@ instructions = """V následující části experimentu je vaším úkolem odhado
 Pokud se vám bude zdát, že nemáte dostatek informací, zkuste přesto uvést váš nejlepší odhad dané pravděpodobnosti.
 I pokud se vám budou zdát zadání podobná, čtěte je pečlivě, mohou mít pouze malé odlišnosti, které však mohou ovlivnit váš odhad pravděpodobnosti.
 
+Odpovědi se zadávají pomocí šoupátka (slider). Před pokračováním musíte s šoupátkem hýbnout, ale to neznamená, že nemůžete odpovědět pravděpodobnost 0 %.
+
 Pro započetí úkolu klikněte na tlačítko 'Pokračovat'.
 """
 
@@ -85,7 +87,7 @@ class WeakEvidence(ExperimentFrame):
         self.rowconfigure(6, weight = 3)
 
         ttk.Style().configure("TButton", font = "helvetica 18")
-        self.next = ttk.Button(self, text = "Continue", command = self.proceed, state = "disabled")
+        self.next = ttk.Button(self, text = "Pokračovat", command = self.proceed, state = "disabled")
         self.next.grid(row = 5, column = 0, columnspan = 4, pady = 15)
         
 
@@ -122,7 +124,7 @@ class WeakEvidence(ExperimentFrame):
 
 
 
-WeakEvidenceInstructions = (InstructionsFrame, {"text": instructions, "height": 9, "font": 18, "width": 80})
+WeakEvidenceInstructions = (InstructionsFrame, {"text": instructions, "height": 11, "font": 18, "width": 80})
 
 
 
