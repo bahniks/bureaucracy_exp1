@@ -37,22 +37,26 @@ onetime_green = read_all("onetime_green.txt").split("\n")
 onetime_filler = read_all("onetime_filler.txt").split("\n")
 immoral = read_all("immoral.txt").split("\n")
 immoral_short = read_all("immoral_short.txt").split("\n")
+moral_short = read_all("moral_short.txt").split("\n")
 names = read_all("names.txt").split("\n")
 
-immoral_random = [i for i in range(len(immoral))]
-green_random = [i for i in range(len(onetime_green))]
-random.shuffle(immoral_random)
-random.shuffle(green_random)
+rd = [i for i in range(len(repeated_green))]
+random.shuffle(rd)
 
 random.shuffle(repeated_filler)
 random.shuffle(onetime_filler)
-immoral = [immoral[i] for i in immoral_random]
-immoral_short = [immoral_short[i] for i in immoral_random]
 random.shuffle(names)
 
-conditions = ["ff", "fg", "gg", "gf", "ff", "fg", "gg", "gf"]*(n_items//8)
+repeated_green = [repeated_green[i] for i in rd[:4]]
+onetime_green, moral = [onetime_green[i] for i in rd[4:8]], [onetime_green[i] for i in rd[8:12]]
+moral_short = [moral_short[i] for i in rd[8:12]]
+immoral = [immoral[i] for i in rd[12:16]]
+immoral_short = [immoral_short[i] for i in rd[12:16]]
+
+conditions = ["ffp", "fgp", "ggp", "gfp", "ffn", "fgn", "ggn", "gfn"]
 random.shuffle(conditions)
 
+shorts = []
 texts = []
 for i in range(n_items):
     text = []
@@ -60,18 +64,24 @@ for i in range(n_items):
     if conditions[i][0] == "f":
         text.append(repeated_filler.pop()) 
     else:
-        text.append(repeated_green[green_random.pop()]) 
+        text.append(repeated_green.pop()) 
     text.append(onetime_filler.pop()) 
     if conditions[i][1] == "f":
         text.append(onetime_filler.pop())
     else:
-        text.append(onetime_green[green_random.pop()])
+        text.append(onetime_green.pop())
     text = ['"' + t + '"' for t in text]
     random.shuffle(text)
     text = "\n\n".join(text)
     text += "\n\n\n"
     text += "Co se stalo:\n"
-    text += '"' + immoral[i] + '"'
+    if conditions[i][2] == "p":
+        behavior = moral.pop()
+        shorts.append(moral_short.pop())
+    else:
+        behavior = immoral.pop()
+        shorts.append(immoral_short.pop())
+    text += '"' + behavior + '"'
     text = text.replace("AAA", names[i])
     texts.append(text)
 
@@ -168,7 +178,7 @@ class Character(ExperimentFrame):
     def newItem(self):
         self.measure1.answer.set("")
         self.measure2.answer.set("")        
-        self.measure1.question["text"] = self.q1 + immoral_short[self.order].replace("AAA", names[self.order]) + "?"
+        self.measure1.question["text"] = self.q1 + shorts[self.order].replace("AAA", names[self.order]) + "?"
         self.measure2.question["text"] = self.q2.replace("AAA", names[self.order])
         
 
@@ -177,7 +187,7 @@ Character2 = (Character, {"mode": "character"})
 
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.getcwd()))
-    GUI([CharacterIntro,
+    GUI([#CharacterIntro,
          Character1,
          CharacterIntro2,
          Character2       
