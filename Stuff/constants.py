@@ -1,2 +1,2 @@
-TESTING = True
+TESTING = False
 
