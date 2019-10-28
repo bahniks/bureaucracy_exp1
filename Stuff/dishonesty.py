@@ -55,7 +55,7 @@ Výše příspěvku, který PLESS odvede na charitu, závisí na tom, zda budete
 
 Vaše odměna je na začátku 0 bodů. Za každý zatříděný obrázek získáte 3 body, bez ohledu na to, zda ho zatřídíte v souladu s pravidlem nebo ne. Pouze pokud obrázek nezatřídíte nijak (tj. nestisknete žádnou klávesu), nezískáte za něj žádné body.
 
-Některé obrázky mají uvnitř vepsané číslo. U těchto obrázků vám počítačový program nabízí odměnu za porušení pravidla a zatřídění obrázku dle TVARU. Pokud bude v obrázku vepsané číslo, získáte pro sebe navíc počet bodů odpovídající vepsanému číslu, když budete ignorovat pravidlo o zařazování dle BARVY a obrázek místo toho zatřídíte dle TVARU. Příspěvek na charitu se v tomto případě sníží o 200 bodů. {} Samozřejmě můžete body navíc ignorovat a obrázek zatřídit k odpovídající barvě.
+Některé obrázky mají uvnitř vepsané číslo od 40 do 190. U těchto obrázků vám počítačový program nabízí odměnu za porušení pravidla a zatřídění obrázku dle TVARU. Pokud bude v obrázku vepsané číslo, získáte pro sebe navíc počet bodů odpovídající vepsanému číslu, když budete ignorovat pravidlo o zařazování dle BARVY a obrázek místo toho zatřídíte dle TVARU. Příspěvek na charitu se v tomto případě sníží o 200 bodů. {} Samozřejmě můžete body navíc ignorovat a obrázek zatřídit k odpovídající barvě.
 
 Po kliknutí na Pokračovat uvidíte, jak bude vypadat obrazovka během úlohy.
 """.format(punishmentInstructions)
