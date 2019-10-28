@@ -172,12 +172,13 @@ class Character(ExperimentFrame):
         self.measure2.question["text"] = self.q2.replace("AAA", names[self.order])
         
 
-
+Character1 = (Character, {"mode": "environment"})
+Character2 = (Character, {"mode": "character"})
 
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.getcwd()))
     GUI([CharacterIntro,
-         (Character, {"mode": "environment"}),
+         Character1,
          CharacterIntro2,
-         (Character, {"mode": "character"})       
+         Character2       
          ])
