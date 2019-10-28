@@ -3,6 +3,8 @@ from tkinter import *
 from tkinter import ttk
 
 import os
+import random
+from math import ceil
 
 from common import ExperimentFrame
 from gui import GUI
@@ -96,16 +98,48 @@ class Demographics(ExperimentFrame):
         self.next.grid(row = 7, column = 2, pady = 15)
 
 
+    def writeWinnings(self):
+        options = os.path.join(os.path.dirname(os.path.dirname(__file__)), "options.txt")
+        if os.path.exists(options):
+            with open(options, mode = "r") as f:
+                directory = f.readline().strip()
+                station = f.readline().strip()
+            if not os.path.exists(directory):
+                directory = os.path.dirname(self.root.outputfile)
+        else:
+            directory = os.path.dirname(self.root.outputfile)
+            station = "UNKNOWN"
+        self.root.texts["station"] = station
+        self.root.texts["won"] = random.random() < 1/4
+        filename = os.path.splitext(os.path.basename(self.root.outputfile))[0]
+        output = os.path.join(directory, filename + "_STATION_" + str(station) + ".txt")
+        if all([key in self.root.texts for key in ["reward", "charityReward", "charity", "lottery_win"]]):
+            sorting = self.root.texts["reward"]
+            lottery = self.root.texts["lottery_win"]
+            with open(output, mode = "w", encoding = "utf-8") as infile:
+                reward = lottery + 100
+                if self.root.texts["won"]:
+                    reward += sorting
+                reward = int(ceil(reward/10)*10)
+                infile.write("reward: " + str(reward) + "Kč\n\n")
+            self.file.write("Winnings\n")
+            self.file.write("\t".join([self.id, str(reward), str(sorting), str(lottery),
+                                       str(self.root.texts["charityReward"]), self.root.texts["charity"]]) + "\n")
+
+
     def checkAllFilled(self, _ = None):
         if all([v.get() for v in [self.language, self.age, self.sex,
                                   self.field, self.student]]):
             self.next["state"] = "!disabled"
+            
 
     def write(self):
         self.file.write("Demographics\n")
         self.file.write("\t".join([self.id, self.sex.get(), self.age.get(), self.language.get(),
                                    self.student.get(), self.field.get()]) + "\n")
+        self.writeWinnings()
 
+        
 
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.getcwd()))

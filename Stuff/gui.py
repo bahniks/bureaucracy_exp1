@@ -2,9 +2,11 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
 from time import localtime, strftime
-from constants import TESTING
+from collections import defaultdict
 
 import os
+
+from constants import TESTING
 
 
 class GUI(Tk):
@@ -34,7 +36,7 @@ class GUI(Tk):
 
         self.order = frames
 
-        self.texts = {}
+        self.texts = defaultdict(str)
                                     
         self.count = -1
 

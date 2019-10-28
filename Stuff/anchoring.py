@@ -13,7 +13,7 @@ from gui import GUI
 
 intro1 = """V následující úloze budete srovnávat vlasnosti různých objektů s náhodnými hodnotami.
 
-Náhodné hodnoty jsou generovány po zmáčknutí tlačítka 'Znáhodnit' a jsou určeny hodnotami zobrazených na třech "kotoučích" s číslicemi. Tyto hodnoty budou v rozsahu od 1 do 1000. S hodnotou 1000 budete srovnávat objekt, pokud bude na všech kotoučích '0'.
+Náhodné hodnoty jsou generovány po zmáčknutí tlačítka 'Znáhodnit' a jsou určeny hodnotami zobrazených na třech "kotoučích" s číslicemi. Tyto hodnoty budou v rozsahu od 1 do 1000. S hodnotou 1000 budete srovnávat objekt, pokud bude na všech kotoučích zobrazeno '0'.
 """
 
 
@@ -30,7 +30,7 @@ items = [["subway", "vzdálenost tratě metra mezi stanicemi metra Muzeum a Hlav
          ["ship", "délka nejdelší lodě"],
          ["skyscraper", "výška nejvyššího mrakodrapu Burj Khalifa"],
          ["waterfall", "výška nejvyššího vodopádu Salto Angel"],
-         ["viaduct", "výška nejvyššího mostu viaduktu Millau"],
+         ["viaduct", "výška nejvyššího mostu, viaduktu Millau,"],
          ["bridge", "délka Nuselského mostu"],
          ["pyramid", "výška nejvyšší (Chufuovi) pyramidy v Gíze"],
          ["petrin", "délka lanové dráhy na Petřín"],

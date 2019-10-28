@@ -19,7 +19,7 @@ instructions = """V následující části experimentu je vaším úkolem odhado
 Pokud se vám bude zdát, že nemáte dostatek informací, zkuste přesto uvést váš nejlepší odhad dané pravděpodobnosti.
 I pokud se vám budou zdát zadání podobná, čtěte je pečlivě, mohou mít pouze malé odlišnosti, které však mohou ovlivnit váš odhad pravděpodobnosti.
 
-Odpovědi se zadávají pomocí šoupátka (slider). Před pokračováním musíte s šoupátkem hýbnout, ale to neznamená, že nemůžete odpovědět pravděpodobnost 0 %.
+Odpovědi se zadávají pomocí šoupátka (slider). Před pokračováním musíte s šoupátkem pohnout, ale to neznamená, že nemůžete odpovědět pravděpodobnost 0 %.
 
 Pro započetí úkolu klikněte na tlačítko 'Pokračovat'.
 """

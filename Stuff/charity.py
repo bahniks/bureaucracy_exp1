@@ -33,8 +33,8 @@ class Charity(ExperimentFrame):
       
         self.charity = StringVar()
 
-        self.text = Text(self, font = "helvetica 15", relief = "flat", background = "white", height = 5,
-                         wrap = "word", highlightbackground = "white", width = 88)
+        self.text = Text(self, font = "helvetica 18", relief = "flat", background = "white", height = 5,
+                         wrap = "word", highlightbackground = "white", width = 80)
         self.text.grid(row = 1, column = 0, columnspan = 4)
         self.text.insert("1.0", instructions)
         self.text.config(state = "disabled")
@@ -43,14 +43,14 @@ class Charity(ExperimentFrame):
         self.rbuttons = {}
         for i, char in enumerate(charities):
             row = i + 4
-            self.labels[i] = ttk.Label(self, text = char, background = "white", font = "helvetica 15")
+            self.labels[i] = ttk.Label(self, text = char, background = "white", font = "helvetica 18")
             self.labels[i].grid(column = 1, row = row, pady = 2, sticky = W, padx = 20)
             self.rbuttons[i] = ttk.Radiobutton(self, text = "", variable = self.charity,
                                                value = char, command = self.checkCharity)
             self.rbuttons[i].grid(column = 2, row = row, sticky = W)
 
-        ttk.Style().configure("TRadiobutton", background = "white", font = "helvetica 15")
-        ttk.Style().configure("TButton", font = "helvetica 15")
+        ttk.Style().configure("TRadiobutton", background = "white", font = "helvetica 18")
+        ttk.Style().configure("TButton", font = "helvetica 18")
 
         self.columnconfigure(0, weight = 1)
         self.columnconfigure(3, weight = 1)

@@ -1,41 +1,48 @@
 from common import InstructionsFrame
 from math import ceil
 import random
+import os
+
+from gui import GUI
 
 
 intro = """
-Dobrý den,
+Vítejte na výzkumné studii pořádané ve spolupráci s Fakultou podnikohospodářskou Vysoké školy ekonomické v Praze. Tato studie se skládá z několika různých úkolů a otázek. Níže je uveden přehled toho, co vás čeká:
 
-děkujeme, že se účastníte našeho výzkumu. Studie sestává z několika samostatných částí, v jejichž průběhu budete na počítači řešit různé třídící úlohy a odpovídat na otázky. Celá studie trvá asi 50 minut.
+1) Třídění obrázků: vaším úkolem bude třídit obrázky podle barvy. V tomto úkolu můžete vydělat peníze pro sebe a vámi vybranou charitu.
+2) Loterie: můžete se rozhodnout zúčastnit se loterie s několika koly a získat další peníze v závislosti na vašich rozhodnutích a výsledcích loterie.
+3) Odhady hodnot: budete odhadovat a porovnávat různé hodnoty týkající se všeobecných znalostí.
+4) Odhady pravděpodobností: budete odhadovat pravděpodobnosti různých jevů.
+5) Hodnocení lidí: budete hodnotit lidi a jejich činy dle poskytnutých popisů.
+6) Dotazníky: budete odpovídat na otázky ohledně vašich vlastností a postojů.
+7) Konec studie a platba: poté, co skončíte, půjdete do vedlejší místnosti, kde podepíšete pokladní dokument, na základě kterého obdržíte vydělané peníze v hotovosti. Jelikož v dokumentu bude uvedena pouze celková suma, nikdo se nedoví, kolik jste vydělali v jednotlivých částech studie.
 
-Vaše účast na výzkumu je zcela dobrovolná a můžete ji kdykoliv ukončit. Pokud se budete chtít na něco zeptat, přivolejte prosím experimentátora zvednutím ruky.
+Děkujeme, že jste vypnuli své mobilní telefony, a že nebudete s nikým komunikovat v průběhu studie. Pokud s někým budete komunikovat, nebo pokud budete nějakým jiným způsobem narušovat průběh studie, budete požádáni, abyste opustili laboratoř, bez nároku na vyplacení peněz.
 
-Kliknutím na tlačítko Pokračovat vyjadřujete svůj souhlas s účastí a anonymním využitím Vašich dat.
+V případě, že máte otázky nebo narazíte na technický problém během úkolů, zvedněte ruku a tiše vyčkejte příchodu výzkumného asistenta.
 
-Pro začátek klikněte na tlačítko Pokračovat.
+Nepokračujte prosím dokud vám výzkumný asistent nedá pokyn.
 """
+
 
 
 endingtext = """
-Děkujeme za Vaši účast! 
-Dnešní výzkum sestával z několika samostatných studií: Jedna skupina zkoumala vliv tzv. plynulosti (angl. fluency) na hodnocení slov a obrázků. Zajímalo nás například, jestli budou lidé hodnotit aditiva s hůře vyslovitelnými názvy jako nebezpečnější nebo jestli se hodnocení obrázků koček liší v závislosti na kontrastu a straně obrazovky, na níž se kočka zobrazí.
-Další skupina studií byla z oblasti morální psychologie – četli jste různé scenáře, jejichž detaily se mezi náhodně vybranými účastníky lišily. Vliv těchto detailů na hodnocení popsaných činů nebo na rozhodnutí o výši přiznané náhrady škody nám umožní identifikovat faktory důležité pro tvorbu morálních soudů a rozhodnutí.
-Úloha s tříděním barevných obrázků měla simulovat práci zaměstnance, jenž dostává za svoji práci relativně malou fixní odměnu bez ohledu na to, jak svoji práci vykonává. Pokud ji však vykonává špatně (zde když netřídí dle barvy), společnosti vzniká škoda, ačkoliv úředník tím sám netrpí. Naopak má někdy možnost přivydělat si, když je k obrázku přidán “úplatek”, jenž získá, když provede zatřídění dle požadavku uplácejícího. Tato úloha vznikla originálně v laboratoři PLESS a pokud se osvědčí, umožní v budoucnosti zkoumat náchylnost ke korupci či nepoctivému chování.
+{}  V loterii jste vydělali {} Kč. Za účast na studii je odměna 100 Kč. Vaše celková odměna za tuto studii je tedy {} Kč, zaokrouhleno na desítky korun nahoru získáváte {} Kč. Napište prosím tuto (zaokrouhlenou) částku společně s číslem vašeho místa – {} na papír na stole před vámi.
 
-Podrobnější popis jednotlivých studií a jejich hypotéz Vám bude zaslán v průběhu nejbližších dní e-mailem. Prosíme, abyste tyto informace během sběru dat nešířili, zejména ne mezi potenciální účastníky. O ukončení sběru dat budete informováni rovněž e-mailem.
+Výsledky experimentu budou volně dostupné na stránkách PLESS a CEBEX, krátce po vyhodnocení dat a publikaci výsledků. Žádáme vás, abyste nesdělovali detaily této studie možným účastníkům, aby jejich volby a odpovědi nebyly ovlivněny a znehodnoceny.
+  
+Zvedněte prosím ruku a některý z výzkumných asistentů přijde a ukončí experiment. Poté si můžete vzít všechny svoje věci, papír s číslem vašeho místa a uvedenou odměnou, a bez toho, aniž byste rušili ostatní účastníky, se odeberte do vedlejší místnosti, kde obdržíte svoji odměnu. 
 
-Pod klávesnicí naleznete potvrzení o převzetí odměny. Toto potvrzení je pro Würzburgskou univerzitu, jež přispívá 4 € pro každého účastníka dnešní studie. Prosím čitelně vyplňte potvrzení.
-
-{}
-
-Nyní si můžete vzít své věci, vyplněné potvrzení a přejít do vedlejší místnosti, kde Vám bude odměna vyplacena. 
-Tím Vaše účast na dnešní studii končí. Ještě jednou děkujeme!
+Toto je konec experimentu. Děkujeme za vaši účast!
+ 
+Laboratoř CEBEX/PLESS
 """
 
-winending = "V losování v souvislosti s úlohou s tříděním obrázků jste byl(a) vybrán(a). V úloze jste získal(a) {} Kč pro sebe a {} Kč pro charitu Člověk v tísni. Vaše celková odměna je tedy {} Kč – zapište prosím tuto částku na papírek, jenž odevzdáte spolu s vyplněným potvrzením."
-lostending = "V losování v souvislosti s úlohou s tříděním obrázků jste nebyl(a) vybrán(a). Vaše odměna za dnešní experiment je tedy 100 Kč."
+winending = "V losování v souvislosti s úlohou s tříděním obrázků jste byl(a) vybrán(a). V úloze jste získal(a) {} Kč pro sebe a {} Kč pro charitu {}."
+lostending = "V losování v souvislosti s úlohou s tříděním obrázků jste nebyl(a) vybrán(a)."
 
-Intro =(InstructionsFrame, {"text": intro})
+
+Intro =(InstructionsFrame, {"text": intro, "height": 28, "proceed": False, "keys": ["g", "G"]})
 
 
 class Ending(InstructionsFrame):
@@ -43,14 +50,30 @@ class Ending(InstructionsFrame):
         pass
     
     def __call__(self, root):
-        win = random.random() < 1/4
+        if not "won" in root.texts:
+            win = random.random() < 1/4
+        else:
+            win = root.texts["won"]
         if win:
             reward = ceil(root.texts["reward"] / 10)
             charity = ceil(root.texts["charityReward"] / 10)
-            text = endingtext.format(winending.format(reward, charity, reward + 100))
+            ruffle = winending.format(reward, charity, root.texts["charity"])
         else:
-            text = endingtext.format(lostending)
+            reward = 0
+            ruffle = lostending
+        lottery = root.texts["lottery_win"]
+        sumReward = reward + lottery + 100
+        roundedReward = int(ceil(sumReward/10)*10)
+        seat = root.texts["station"]
+        text = endingtext.format(ruffle, lottery, sumReward, roundedReward, seat)
         super().__init__(root, text, height = 30, font = 15, proceed = False)
         return self
 
 ending = Ending()
+
+
+
+if __name__ == "__main__":
+    os.chdir(os.path.dirname(os.getcwd()))
+    GUI([Intro,
+         ending])

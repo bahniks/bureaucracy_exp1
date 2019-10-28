@@ -134,10 +134,11 @@ class DishonestyInstructions(InstructionsFrame):
         self.shapes = ["triangle", "square", "circle"]
         
         self.down = Canvas(self, background = "white", highlightbackground = "white",
-                           highlightcolor = "white", width = self.width, height = 150)
+                           highlightcolor = "white", width = self.width, height = 170)
         self.down.grid(row = 3, column = 0, sticky = (E, W), columnspan = 3)
 
         self.createPots()
+
         
     def createPots(self):
         self.pots = []
@@ -168,7 +169,7 @@ class Dishonesty(ExperimentFrame):
         self.maxObjects = 200 # adjust for testing
         self.charityBeginning = 2000
         self.spacingTime = 2.5 
-        self.pauseTime = 10 # pause after punishment
+        self.pauseTime = 12 # pause after punishment
         self.speed = 615
         self.bribes = [i*10 for i in range(4, 19)]
         self.bribeProbability = 0.225

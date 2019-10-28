@@ -37,14 +37,21 @@ class ExperimentFrame(Canvas):
 
 class InstructionsFrame(ExperimentFrame):
     def __init__(self, root, text, proceed = True, firstLine = None, end = False, height = 12,
-                 font = 18, space = False, width = 90):
+                 font = 18, space = False, width = 90, keys = None, update = None):
         super().__init__(root)
+
+        if update:
+            updateTexts = []
+            for i in update:
+                updateTexts.append(self.root.texts[i])
+            text = text.format(*updateTexts)
         
         self.root = root
         self.t0 = time()
                     
         self.text = Text(self, font = "helvetica {}".format(font), relief = "flat",
-                         background = "white", width = width, height = height, wrap = "word")
+                         background = "white", width = width, height = height, wrap = "word",
+                         highlightbackground = "white")
         self.text.grid(row = 1, column = 0, columnspan = 3)
         if firstLine:
             self.text.insert("1.0", text[:text.find("\n", 5)], firstLine)
@@ -55,13 +62,21 @@ class InstructionsFrame(ExperimentFrame):
         self.text.config(state = "disabled")
 
         if proceed:
-            ttk.Style().configure("TButton", font = "helvetica 15")
+            ttk.Style().configure("TButton", font = "helvetica 18")
             self.next = ttk.Button(self, text = "Pokračovat", command = self.nextFun)
             self.next.grid(row = 2, column = 1)
         elif space:
             self.root.bind("<space>", lambda e: self.proceed())
+        elif keys:
+            for key in keys:
+                if key in [str(i) for i in range(10)]:
+                    self.root.bind("{}".format(key), lambda e: self.proceed())
+                else:
+                    self.root.bind("<{}>".format(key), lambda e: self.proceed())                
         else:
             self.root.bind("<g>", lambda e: self.proceed())
+            self.root.bind("<G>", lambda e: self.proceed())
+        self.keys = keys
 
         self.columnconfigure(0, weight = 1)
         self.rowconfigure(0, weight = 3)
@@ -77,6 +92,13 @@ class InstructionsFrame(ExperimentFrame):
         if self.check():
             self.root.unbind("<space>")
             self.root.unbind("<g>")
+            self.root.unbind("<G>")
+            if self.keys:
+                for key in self.keys:
+                    if key in [str(i) for i in range(10)]:
+                        self.root.unbind("{}".format(key))
+                    else:
+                        self.root.unbind("<{}>".format(key))
             self.destroy()
             self.root.nextFrame()
         else:
