@@ -20,7 +20,7 @@ Postupně Vám popíšeme osm lidí. U každého člověka Vám ukážeme čtyř
 
 
 intro2 = """
-Nyní budete číst znovu informace o popsaných osmi lidech. Tentokrát nás však bude zajímat, jak byste popsaného člověka a jeho chování hodnotili.
+Nyní vám ukážeme znovu informace o stejných osmi lidech. Tentokrát nás však bude zajímat, jak byste tohoto člověka a jeho chování hodnotil(a).
 """
 
 CharacterIntro =(InstructionsFrame, {"text": intro, "height": 6})
@@ -147,7 +147,7 @@ class Character(ExperimentFrame):
 
     def initializeQuestions(self):
         if self.mode == "environment":
-            self.q1 = "Jaký efekt na životní prostředí podle Vašeho názoru má, že "
+            self.q1 = "Jaký dopad na životní prostředí má to, že "
             ans = answers2
         else:    
             self.q1 = "Jak je podle Vašeho názoru morální to, že "
@@ -187,7 +187,7 @@ Character2 = (Character, {"mode": "character"})
 
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.getcwd()))
-    GUI([#CharacterIntro,
+    GUI([CharacterIntro,
          Character1,
          CharacterIntro2,
          Character2       
