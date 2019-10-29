@@ -190,7 +190,7 @@ class Dishonesty(ExperimentFrame):
         self.middle.grid(row = 1, column = 0, sticky = (E, W, S, W), columnspan = 2)
 
         self.down = Canvas(self, background = "white", highlightbackground = "white",
-                           highlightcolor = "white", width = self.width, height = 250)
+                           highlightcolor = "white", width = self.width, height = 280)
         self.down.grid(row = 3, column = 0, sticky = (E, W), columnspan = 2)
 
         self.charityVar = StringVar()
