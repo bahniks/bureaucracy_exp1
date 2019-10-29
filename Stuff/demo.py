@@ -122,7 +122,7 @@ class Demographics(ExperimentFrame):
                     reward += sorting
                 reward = int(ceil(reward/10)*10)
                 infile.write("reward: " + str(reward) + "Kč\n\n")
-            self.file.write("Winnings\n")
+            self.file.write("\nWinnings\n")
             self.file.write("\t".join([self.id, str(reward), str(sorting), str(lottery),
                                        str(ceil(self.root.texts["charityReward"] / 10)),
                                        self.root.texts["charity"]]) + "\n")
