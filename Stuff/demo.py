@@ -114,7 +114,7 @@ class Demographics(ExperimentFrame):
         filename = os.path.splitext(os.path.basename(self.root.outputfile))[0]
         output = os.path.join(directory, filename + "_STATION_" + str(station) + ".txt")
         if all([key in self.root.texts for key in ["reward", "charityReward", "charity", "lottery_win"]]):
-            sorting = self.root.texts["reward"]
+            sorting = ceil(self.root.texts["reward"] / 10)
             lottery = self.root.texts["lottery_win"]
             with open(output, mode = "w", encoding = "utf-8") as infile:
                 reward = lottery + 100
@@ -124,7 +124,8 @@ class Demographics(ExperimentFrame):
                 infile.write("reward: " + str(reward) + "Kč\n\n")
             self.file.write("Winnings\n")
             self.file.write("\t".join([self.id, str(reward), str(sorting), str(lottery),
-                                       str(self.root.texts["charityReward"]), self.root.texts["charity"]]) + "\n")
+                                       str(ceil(self.root.texts["charityReward"] / 10)),
+                                       self.root.texts["charity"]]) + "\n")
 
 
     def checkAllFilled(self, _ = None):
