@@ -1,6 +1,6 @@
 AAA bude odebírat elektrickou energii, která není vyrobena z obnovitelných zdrojù
 AAA dal prádlo do sušièky
-AAA jel sám autem do práce
+jel AAA sám autem do práce
 AAA øíkal sousedovi, že tøídìní odpadu nemá smysl
 AAA odvezl pneumatiky na èernou skládku
 AAA si vzal v obchodì dvì igelitové tašky
@@ -17,7 +17,7 @@ AAA koupil plechovky místo láhví
 AAA koupil mražené jídlo
 si AAA koupil v zimì dovezené èerstvé borùvky
 AAA koupil salát balený v plastovém obalu s plastovou lžièkou
-AAA jel autem do práce.
+jel AAA autem do práce
 AAA letìl za známými do Varšavy
 si AAA koupil v obchodì nìkolik igelitových tašek
 AAA jel na výlet autem

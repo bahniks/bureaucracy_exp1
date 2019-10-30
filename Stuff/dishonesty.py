@@ -439,11 +439,11 @@ class Dishonesty(ExperimentFrame):
 
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.getcwd()))
-    GUI([Charity,
-         DishonestyInstructions,
-         DishonestyInstructions2,
-         DishonestyInstructions3,
-         DishonestyInstructions4,
-         DishonestyInstructions5,
+    GUI([#Charity,
+         #DishonestyInstructions,
+         #DishonestyInstructions2,
+         #DishonestyInstructions3,
+         #DishonestyInstructions4,
+         #DishonestyInstructions5,
          Dishonesty])
 
