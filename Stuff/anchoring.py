@@ -183,6 +183,8 @@ class Comparison(ExperimentFrame):
 
         self.lower.grid(row = 5, column = 1, sticky = E, padx = 20)
         self.higher.grid(row = 5, column = 2, sticky = W, padx = 20)
+        self.lower["state"] = "!disabled"
+        self.higher["state"] = "!disabled"
 
 
     def response(self, answer):
@@ -199,6 +201,8 @@ class Comparison(ExperimentFrame):
             self.text["state"] = "disabled"
             self.lower.grid_forget()
             self.higher.grid_forget()
+            self.lower["state"] = "disabled"
+            self.higher["state"] = "disabled"
             self.random["state"] = "normal"
             self.upper["state"] = "normal"
             self.upper.insert("1.0", self.instruction, "center")

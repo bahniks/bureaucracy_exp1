@@ -10,7 +10,7 @@ intro = """
 Vítejte na výzkumné studii pořádané ve spolupráci s Fakultou podnikohospodářskou Vysoké školy ekonomické v Praze. Tato studie se skládá z několika různých úkolů a otázek. Níže je uveden přehled toho, co vás čeká:
 
 1) Třídění obrázků: vaším úkolem bude třídit obrázky podle barvy. V tomto úkolu můžete vydělat peníze pro sebe a vámi vybranou charitu.
-2) Loterie: můžete se rozhodnout zúčastnit se loterie s několika koly a získat další peníze v závislosti na vašich rozhodnutích a výsledcích loterie.
+2) Loterie: můžete se rozhodnout zúčastnit se loterie s několika koly a získat další peníze (0-1280 Kč) v závislosti na vašich rozhodnutích a výsledcích loterie.
 3) Odhady hodnot: budete odhadovat a porovnávat různé hodnoty týkající se všeobecných znalostí.
 4) Odhady pravděpodobností: budete odhadovat pravděpodobnosti různých jevů.
 5) Hodnocení lidí: budete hodnotit lidi a jejich činy dle poskytnutých popisů.

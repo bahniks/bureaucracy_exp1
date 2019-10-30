@@ -143,6 +143,7 @@ class Character(ExperimentFrame):
             self.text["state"] = "disabled"
             self.nameVar.set(names[self.order])
             self.newItem()
+            self.next["state"] = "disabled"
             self.t0 = perf_counter()
 
     def initializeQuestions(self):
