@@ -20,7 +20,7 @@ Postupně Vám popíšeme osm lidí. U každého člověka Vám ukážeme čtyř
 
 
 intro2 = """
-Nyní vám ukážeme znovu informace o stejných osmi lidech. Tentokrát nás však bude zajímat, jak byste tohoto člověka a jeho chování hodnotil(a).
+Nyní vám ukážeme znovu stejné informace o stejných osmi lidech. Tentokrát nás však bude zajímat, jak byste tohoto člověka a jeho chování hodnotil(a).
 """
 
 CharacterIntro =(InstructionsFrame, {"text": intro, "height": 6})

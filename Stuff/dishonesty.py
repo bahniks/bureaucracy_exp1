@@ -31,7 +31,7 @@ punishmentInstructions = "V tomto případě je nicméně šance {}%, že poruš
 punishmentText = """Bylo zaznamenáno zatřídění podle tvaru místo podle barvy a bylo Vám strženo {} bodů.
 Pravděpodobnost zaznamenání zatřídění v rozporu s pravidly je {}%.
 Úloha znovu začne po odečtu.
-""".format(punishment, probability)
+""".format(punishment, probability*100)
 
 if punishment == "end":
     punishmentText = """Bylo zaznamenáno zatřídění podle tvaru místo podle barvy, což znamená, že úloha je ukončena."""

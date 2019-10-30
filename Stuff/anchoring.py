@@ -32,7 +32,7 @@ items = [["subway", "vzdálenost tratě metra mezi stanicemi metra Muzeum a Hlav
          ["waterfall", "výška nejvyššího vodopádu Salto Angel"],
          ["viaduct", "výška nejvyššího mostu, viaduktu Millau,"],
          ["bridge", "délka Nuselského mostu"],
-         ["pyramid", "výška nejvyšší (Chufuovi) pyramidy v Gíze"],
+         ["pyramid", "výška nejvyšší (Chufuovy) pyramidy v Gíze"],
          ["petrin", "délka lanové dráhy na Petřín"],
          ["strahov", "délka Velkého strahovského stadionu"]
          ]

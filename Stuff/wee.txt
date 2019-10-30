@@ -5,10 +5,10 @@ Muž v pondělí koupil čerstvého litr mléka. V úterý na 30 minut vypadne p
 Muž v pondělí koupí litr čerstvého mléka. V úterý na 30 minut vypadne proud. Jaká je pravděpodobnost, že úterní výpadek proudu způsobí, že mléko bude od středy za týden zkažené?
 
 Telephone
-Rodiče 35 leté ženy bydlí na druhém konci republiky. Jaká je pravděpodobnost, že žena v dubnu nebude mluvit se svými rodiči?
-Rodiče 35 leté ženy bydlí na druhém konci republiky. Tatáž žena ztratí 1. dubna mobilní telefon. Jaká je pravděpodobnost, že žena v dubnu nebude mluvit se svými rodiči?
-Rodiče 35 leté ženy bydlí na druhém konci republiky. Tatáž žena ztratila prvního dubna mobilní telefon. Žena během dubnu nemluvila se svými rodiči. Jaká je pravděpodobnost, že to, že žena v dubnu s rodiči nemluvila, bylo způsobeno právě ztrátou telefonu?
-Rodiče 35 leté ženy bydlí na druhém konci republiky. Tatáž žena ztratí prvního dubna mobilní telefon. Jaká je pravděpodobnost, že ztráta telefonu způsobí, že žena v dubnu nebude mluvit se svými rodiči?
+Rodiče 35leté ženy bydlí na druhém konci republiky. Jaká je pravděpodobnost, že žena v dubnu nebude mluvit se svými rodiči?
+Rodiče 35leté ženy bydlí na druhém konci republiky. Tatáž žena ztratí 1. dubna mobilní telefon. Jaká je pravděpodobnost, že žena v dubnu nebude mluvit se svými rodiči?
+Rodiče 35leté ženy bydlí na druhém konci republiky. Tatáž žena ztratila prvního dubna mobilní telefon. Žena během dubnu nemluvila se svými rodiči. Jaká je pravděpodobnost, že to, že žena v dubnu s rodiči nemluvila, bylo způsobeno právě ztrátou telefonu?
+Rodiče 35leté ženy bydlí na druhém konci republiky. Tatáž žena ztratí prvního dubna mobilní telefon. Jaká je pravděpodobnost, že ztráta telefonu způsobí, že žena v dubnu nebude mluvit se svými rodiči?
 
 Brewery
 Pivovar vlastní nejprodávanější značku světlého piva. Jaká je pravděpodobnost, že totéž pivo bude mít příští rok vyšší podíl na trhu než tento?
@@ -65,10 +65,10 @@ Hráč baseballu odpálil během minulé sezony 20 homerunů. Po sezoně použí
 Hráč baseballu odpálil během minulé sezony 20 homerunů. Po sezoně používal dvakrát týdně počítačový program určený ke zlepšení ostrosti zraku. Jaká je pravděpodobnost, že užití programu způsobí, že během následující sezony odpálí více než 20 homerunů?
 
 Turist
-Turista si fotí sochu svobody z paluby výletní lodi. Jaká je pravděpodobnost, že fotografie bude rozmazaná?
-Turista si fotí sochu svobody z paluby výletní lodi. V momentě, kdy fotografii pořizuje, zafouká slabý vítr. Jaká je pravděpodobnost, že fotografie bude rozmazaná?
-Turista si fotí sochu svobody z paluby výletní lodi. V momentě, kdy fotografii pořizuje, zafouká slabý vítr. Fotografie byla rozmazaná. Jaká je pravděpodobnost, že rozmazání fotografie bylo způsobeno právě zmíněným zafoukáním větru?
-Turista si fotí sochu svobody z paluby výletní lodi. V momentě, kdy fotografii pořizuje, zafouká slabý vítr. Jaká je pravděpodobnost, že vánek způsobí, že fotografie bude rozmazaná?
+Turista si fotí Sochu Svobody z paluby výletní lodi. Jaká je pravděpodobnost, že fotografie bude rozmazaná?
+Turista si fotí Sochu Svobody z paluby výletní lodi. V momentě, kdy fotografii pořizuje, zafouká slabý vítr. Jaká je pravděpodobnost, že fotografie bude rozmazaná?
+Turista si fotí Sochu Svobody z paluby výletní lodi. V momentě, kdy fotografii pořizuje, zafouká slabý vítr. Fotografie byla rozmazaná. Jaká je pravděpodobnost, že rozmazání fotografie bylo způsobeno právě zmíněným zafoukáním větru?
+Turista si fotí Sochu Svobody z paluby výletní lodi. V momentě, kdy fotografii pořizuje, zafouká slabý vítr. Jaká je pravděpodobnost, že vánek způsobí, že fotografie bude rozmazaná?
 
 Politician
 Neznámý politik kandidující za stranu, jež vyhrála minulé volby, se pokouší být zvolen do poslanecké sněmovny. Jaká je pravděpodobnost, že u voleb 2018 uspěje?
