@@ -15,7 +15,7 @@ from common import read_all
 
 intro = """
 Následující úkol se týká usuzování o druhých lidech.
-Postupně Vám popíšeme osm lidí. U každého člověka Vám ukážeme čtyři výroky, které o něm řekli jeho blízcí. Jedná se o výroky týkající se jeho aktivit, zvyků, ale i obyčejných zážitků a všedních činností. Následně vám popíšeme určitou situaci. Po vás budeme chtít, abyste na základě těchto informací zhodnotil(a) postoj tohoto člověka k životnímu prostředí a jak se zachoval v oné situaci s ohledem na životní prostředí.
+Postupně Vám popíšeme osm lidí. U každého člověka Vám ukážeme čtyři výroky, které o něm řekli jeho blízcí. Jedná se o výroky týkající se jeho aktivit, zvyků, ale i obyčejných zážitků a všedních činností. Následně vám popíšeme určitou situaci. Po vás budeme chtít, abyste na základě těchto informací zhodnotil(a), jaký postoj tento člověk má k životnímu prostředí a jestli dané chování poškozuje nebo chrání životní prostředí.
 """
 
 
@@ -86,10 +86,10 @@ for i in range(n_items):
     texts.append(text)
 
 
-answers = ["Velmi nemorální", "Celkem nemorální", "Spíše nemorální",
-           "Spíše morální", "Celkem morální", "Velmi morální"]
-answers2 = ["Silně negativní", "Středně negativní", "Spíše negativní",
-            "Spíše pozitivní", "Středně pozitivní", "Silně pozitivní"]
+answers = ["Velmi nemorální", "Středně nemorální", "Spíše nemorální",
+           "Spíše morální", "Středně morální", "Velmi morální"]
+answers2 = ["Velmi negativní", "Středně negativní", "Spíše negativní",
+            "Spíše pozitivní", "Středně pozitivní", "Velmi pozitivní"]
 
 
 class Character(ExperimentFrame):
@@ -158,7 +158,7 @@ class Character(ExperimentFrame):
         self.measure1.grid(row = 2, column = 1, columnspan = 3, pady = 10)
 
         if self.mode == "environment":
-            self.q2 = "Zkuste prosím odhadnout s využitím následující škály, jaký postoj má AAA k ochraně životního prostředí."
+            self.q2 = "Jaký postoj má podle Vás AAA k ochraně životního prostředí?"
         else:
             self.q2 = "Jak je podle Vás AAA celkově morální nebo nemorální?"
         self.measure2 = Measure(self, self.q2, ans, "", "",

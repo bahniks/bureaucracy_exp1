@@ -13,7 +13,7 @@ from gui import GUI
 
 intro1 = """V následující úloze budete srovnávat vlasnosti různých objektů s náhodnými hodnotami.
 
-Náhodné hodnoty jsou generovány po zmáčknutí tlačítka 'Znáhodnit' a jsou určeny hodnotami zobrazených na třech "kotoučích" s číslicemi. Tyto hodnoty budou v rozsahu od 1 do 1000. S hodnotou 1000 budete srovnávat objekt, pokud bude na všech kotoučích zobrazeno '0'.
+Náhodné hodnoty jsou generovány po zmáčknutí tlačítka 'Znáhodnit' a jsou určeny hodnotami zobrazených na třech "kotoučích" s číslicemi (obrázek kotoučů lze vidět níže). Tyto hodnoty budou v rozsahu od 1 do 1000. S hodnotou 1000 budete srovnávat objekt, pokud bude na všech kotoučích zobrazeno '0'.
 """
 
 
@@ -276,8 +276,58 @@ class Absolute(ExperimentFrame):
             self.displayQuestion()
 
 
-AnchoringInstructions1 = (InstructionsFrame, {"text": intro1, "height": 5, "font": 20})
+
+class SlotInstructions(InstructionsFrame):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.slotwidth = 300
+        self.slotheight = 150
+        self.slot = Canvas(self, width = self.slotwidth+2, height = self.slotheight, background = "white",
+                           highlightbackground = "black")
+        self.slot.grid(row = 2, column = 1)
+
+        self.next.grid(row = 3, column = 1)
+
+        self.createSlots()
+
+        self.rowconfigure(4, weight = 2)
+
+
+    def createSlots(self):          
+        self.slot.create_rectangle((3, 3, self.slotwidth/3 + 3, self.slotheight), width = 3)
+        self.slot.create_rectangle((self.slotwidth/3 + 3, 3, 2*self.slotwidth/3 + 3, self.slotheight), width = 3)
+        self.slot.create_rectangle((2*self.slotwidth/3 + 3, 3, self.slotwidth + 3, self.slotheight), width = 3)
+
+        self.slot.create_polygon((0, self.slotheight/2 + 10,
+                                  0, self.slotheight/2 - 10,
+                                  15, self.slotheight/2), fill = "black")
+        self.slot.create_polygon((self.slotwidth + 5, self.slotheight/2 + 10,
+                                  self.slotwidth + 5, self.slotheight/2 - 10,
+                                  self.slotwidth - 10, self.slotheight/2), fill = "black")
+
+        self.numbers = []
+        
+        self.number = random.randint(1, 999)
+
+        for i in range(-4, 6):
+            self.numbers.append((self.slot.create_text((self.slotwidth/6 + 5, 13*i*self.slotheight/30 + self.slotheight/2),
+                                                       text = (int(str(self.number)[0])+i) % 10, font = "helvetica 45"), 1, (int(str(self.number)[0])+i) % 10))
+            self.numbers.append((self.slot.create_text((3*self.slotwidth/6 + 5, 13*i*self.slotheight/30 + self.slotheight/2),
+                                                       text = (int(str(self.number)[1])+i) % 10, font = "helvetica 45"), 2, (int(str(self.number)[1])+i) % 10))
+            self.numbers.append((self.slot.create_text((5*self.slotwidth/6 + 5, 13*i*self.slotheight/30 + self.slotheight/2),
+                                                       text = (int(str(self.number)[2])+i) % 10, font = "helvetica 45"), 3, (int(str(self.number)[2])+i) % 10))
+
+        self.text.config(state = "normal")
+        self.text.insert("end", "\nKotouče níže například ukazují číslo {}.".format(self.number))
+        self.text.config(state = "disabled")
+
+    
+
+AnchoringInstructions1 = (SlotInstructions, {"text": intro1, "height": 7, "font": 20})
 AnchoringInstructions2 = (InstructionsFrame, {"text": intro2, "height": 2, "font": 20, "width": 60})
+
+
 
         
 

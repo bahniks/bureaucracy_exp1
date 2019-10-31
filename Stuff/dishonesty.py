@@ -322,6 +322,8 @@ class Dishonesty(ExperimentFrame):
 
     def run(self):
         self.root.config(cursor = "none")
+        self.root.unbind("<Escape>")
+        self.root.bind("<Shift-Escape>", self.root.closeFun)
         t0 = perf_counter()
         objects = 0
         timer = 0
@@ -346,6 +348,8 @@ class Dishonesty(ExperimentFrame):
                 break
         self.root.texts["reward"] = self.rewardTotal
         self.root.texts["charityReward"] = self.charityTotal
+        self.root.bind("<Escape>", self.root.closeFun)
+        self.root.unbind("<Shift-Escape>")
         self.nextFun()
 
 
@@ -439,11 +443,11 @@ class Dishonesty(ExperimentFrame):
 
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.getcwd()))
-    GUI([#Charity,
-         #DishonestyInstructions,
-         #DishonestyInstructions2,
-         #DishonestyInstructions3,
-         #DishonestyInstructions4,
-         #DishonestyInstructions5,
+    GUI([Charity,
+         DishonestyInstructions,
+         DishonestyInstructions2,
+         DishonestyInstructions3,
+         DishonestyInstructions4,
+         DishonestyInstructions5,
          Dishonesty])
 
