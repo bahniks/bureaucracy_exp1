@@ -18,7 +18,6 @@ from charity import Charity
 from anchoring import AnchoringInstructions1, Comparison, AnchoringInstructions2, Absolute
 from wee import WeakEvidenceInstructions, WeakEvidence
 from lottery import Lottery, LotteryInstructions
-from character import CharacterIntro, Character1, CharacterIntro2, Character2
 
 frames = [Intro,
           Charity,
@@ -36,10 +35,6 @@ frames = [Intro,
           Absolute,
           WeakEvidenceInstructions,
           WeakEvidence,
-          CharacterIntro,
-          Character1,
-          CharacterIntro2,
-          Character2,
           HexacoInstructions,
           Hexaco,
           Debriefing,

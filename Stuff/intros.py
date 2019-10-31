@@ -13,9 +13,8 @@ Vítejte na výzkumné studii pořádané ve spolupráci s Fakultou podnikohospo
 2) Loterie: můžete se rozhodnout zúčastnit se loterie s několika koly a získat další peníze (0-1280 Kč) v závislosti na vašich rozhodnutích a výsledcích loterie.
 3) Odhady hodnot: budete odhadovat a porovnávat různé hodnoty týkající se všeobecných znalostí.
 4) Odhady pravděpodobností: budete odhadovat pravděpodobnosti různých jevů.
-5) Hodnocení lidí: budete hodnotit lidi a jejich činy dle poskytnutých popisů.
-6) Dotazníky: budete odpovídat na otázky ohledně vašich vlastností a postojů.
-7) Konec studie a platba: poté, co skončíte, půjdete do vedlejší místnosti, kde podepíšete pokladní dokument, na základě kterého obdržíte vydělané peníze v hotovosti. Jelikož v dokumentu bude uvedena pouze celková suma, nikdo se nedoví, kolik jste vydělali v jednotlivých částech studie.
+5) Dotazníky: budete odpovídat na otázky ohledně vašich vlastností a postojů.
+6) Konec studie a platba: poté, co skončíte, půjdete do vedlejší místnosti, kde podepíšete pokladní dokument, na základě kterého obdržíte vydělané peníze v hotovosti. Jelikož v dokumentu bude uvedena pouze celková suma, nikdo se nedoví, kolik jste vydělali v jednotlivých částech studie.
 
 Děkujeme, že jste vypnuli své mobilní telefony, a že nebudete s nikým komunikovat v průběhu studie. Pokud s někým budete komunikovat, nebo pokud budete nějakým jiným způsobem narušovat průběh studie, budete požádáni, abyste opustili laboratoř, bez nároku na vyplacení peněz.
 
@@ -23,6 +22,7 @@ V případě, že máte otázky nebo narazíte na technický problém během úk
 
 Nepokračujte prosím dokud vám výzkumný asistent nedá pokyn.
 """
+
 
 
 
