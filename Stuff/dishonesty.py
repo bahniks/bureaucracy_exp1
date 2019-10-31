@@ -437,7 +437,7 @@ class Dishonesty(ExperimentFrame):
             self.responsesTotal += 1
             self.numberVar.set(self.numberText.format(self.responsesTotal + 1))
             self.responses.append([timeScreen, timePrevious, shape, color, bribe, responseShape,
-                                   responseColor, shapeRight, colorRight, self.charityTotal,
+                                   responseColor, shapeRight, colorRight, 0, self.charityTotal,
                                    self.rewardTotal, "NA"] + self.colors + self.shapes)
 
             

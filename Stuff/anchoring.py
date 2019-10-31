@@ -185,10 +185,11 @@ class Comparison(ExperimentFrame):
         self.higher.grid(row = 5, column = 2, sticky = W, padx = 20)
         self.lower["state"] = "!disabled"
         self.higher["state"] = "!disabled"
+        self.t0 = perf_counter()
 
 
     def response(self, answer):
-        self.file.write("\t".join([self.id, items[self.number][0], str(self.anchor), answer]) + "\n")
+        self.file.write("\t".join([self.id, items[self.number][0], str(self.anchor), answer, str(perf_counter() - self.t0)]) + "\n")
         self.number += 1
         self.proceed()
 
@@ -257,6 +258,7 @@ class Absolute(ExperimentFrame):
         self.text.delete("1.0", "end")
         self.text.insert("1.0", self.question.format(items[self.number][1]), "center")
         self.text["state"] = "disabled"
+        self.t0 = perf_counter()
         
 
     def proceed(self):
@@ -266,7 +268,7 @@ class Absolute(ExperimentFrame):
             self.warning["foreground"] = "red"
             return
 
-        self.file.write("\t".join([self.id, items[self.number][0], self.answerVar.get()]) + "\n")
+        self.file.write("\t".join([self.id, items[self.number][0], self.answerVar.get(), str(perf_counter() - self.t0)]) + "\n")
         
         self.number += 1
         
