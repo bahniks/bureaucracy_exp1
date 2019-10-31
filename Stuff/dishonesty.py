@@ -26,32 +26,37 @@ if punishment == "end":
 else:
     size = "ztratíte {} bodů ze své odměny".format(punishment)
 
-punishmentInstructions = "V tomto případě je nicméně šance {}%, že porušení pravidla bude odhaleno a vy body navíc neobdržíte a kromě toho {}.".format(int(probability*100), size) if punishment != "control" else ""
+punishmentInstructions = "V tomto případě je nicméně šance {}, že porušení pravidla bude odhaleno a vy za daný obrázek body navíc neobdržíte a kromě toho {}.".format(int(probability*100), size) if punishment != "control" else ""
 
 punishmentText = """Bylo zaznamenáno zatřídění podle tvaru místo podle barvy a bylo Vám strženo {} bodů.
 Pravděpodobnost zaznamenání zatřídění v rozporu s pravidly je {}%.
-Úloha znovu začne po odečtu.
+Úloha bude znovu pokračovat po odečtu.
 """.format(punishment, probability*100)
 
 if punishment == "end":
-    punishmentText = """Bylo zaznamenáno zatřídění podle tvaru místo podle barvy, což znamená, že úloha je ukončena."""
-
+    punishmentText = "Bylo zaznamenáno zatřídění podle tvaru místo podle barvy, což znamená, že úloha je ukončena. Vy i vybraná charita si ponecháváte dosud získané body."
 
 
 dishonestyintro = """
-Svým jednáním v této úloze můžete pro sebe a pro vámi vybranou charitu získávat nebo ztrácet body, jež se na konci experimentu převedou na peníze dle kurzu 10 bodů = 1 Kč.
+V této úloze můžete pro sebe a pro vybranou charitu získávat nebo ztrácet body, jež se na konci experimentu převedou na peníze dle kurzu 10 bodů = 1 Kč.
 
 --Ovládání--
-Vaším úkolem bude třídit obrázky objevující se na obrazovce dle BARVY. Obrázky mohou mít modrou, oranžovou nebo žlutou barvu a tvar kruhu, trojúhelníku nebo čtverce.
+Vaším úkolem bude třídit obrázky objevující se na obrazovce dle BARVY.
 
 Každý obrázek lze stisknutím klávesy 1, 2 a 3 na numerické klávesnici zatřídit k jedné barvě a k jednomu tvaru. Jaká barva a jaký tvar jsou právě spojeny s klávesami 1, 2 a 3 můžete vidět v dolní části obrazovky. Například teď v dolním řádku vidíte, že s klávesou 1 je nyní spojena oranžová barva a trojúhelníkový tvar. Pokud by se teď na obrazovce objevil obrázek a vy byste stiskl(a) klávesu 1, zatřídíte tento obrázek k oranžové barvě a trojúhelníkovému tvaru.
+
+Obrázky mohou mít modrou, oranžovou nebo žlutou barvu a tvar kruhu, trojúhelníku nebo čtverce.
 
 Během úlohy bude v dolní části obrazovky vždy vidět, jaká barva a jaký tvar jsou právě spojeny s klávesami 1, 2 a 3. 
 Pozor – po zatřídění každého obrázku se spojení barev a kláves změní, musíte je proto pozorně sledovat.
 
+Po kliknutí na Pokračovat se dostanete k další části instrukcí.
+"""
+
+dishonestyintro2 = """
 --Získávání bodů--
-Výše příspěvku, který PLESS odvede na charitu, závisí na tom, zda budete dodržovat pravidlo třídění, tj. obrázky třídit dle BARVY. Příspěvek má na začátku hodnotu 2000 bodů. Pokud obrázek zatřídíte k jiné barvě, než je barva obrázku, příspěvek se sníží o 200 bodů. Pokud obrázek zatřídíte ke stejné barvě, výše příspěvku pro charitu se nezmění.
-(Je možné se dostat i do záporných hodnot – o zápornou sumu se v takovém případě sníží celkový příspěvek věnovaný vybrané charitě za všechny účastníky studie.)
+Množství peněz, které získá charita, závisí na tom, zda budete dodržovat pravidlo třídění, tj. obrázky třídit dle BARVY. Pokud obrázek zatřídíte k jiné barvě, než je barva obrázku, příspěvek se sníží o 200 bodů. Pokud obrázek zatřídíte ke stejné barvě, výše příspěvku pro charitu se nezmění.
+(Příspěvek má na začátku hodnotu 2000 bodů. Při častém porušování pravidla je možné se dostat i do záporných hodnot – o zápornou sumu se v takovém případě sníží celkový příspěvek věnovaný vybrané charitě za všechny účastníky studie.)
 
 Vaše odměna je na začátku 0 bodů. Za každý zatříděný obrázek získáte 3 body, bez ohledu na to, zda ho zatřídíte v souladu s pravidlem nebo ne. Pouze pokud obrázek nezatřídíte nijak (tj. nestisknete žádnou klávesu), nezískáte za něj žádné body.
 
@@ -59,6 +64,11 @@ Některé obrázky mají uvnitř vepsané číslo od 40 do 190. U těchto obráz
 
 Po kliknutí na Pokračovat uvidíte, jak bude vypadat obrazovka během úlohy.
 """.format(punishmentInstructions)
+
+dishonestyintro3 = """Po absolvování všech zbývajících úloh v dnešní studii proběhne na počítači losování. Pokud budete vylosován(a), body, jež v této třídící úloze získáte pro sebe a pro charitu {}, se převedou na peníze kurzem 10 bodů = 1 Kč a budou vyplaceny. Šance na vylosování je 20%.
+
+Vaše odměna Vám bude vyplacena po skončení dnešní studie. Peníze pro charity od jednotlivých vylosovaných účastníků budou po skončení sběru dat sečteny a převedeny na bankovní účty charit.
+"""
 
 screenintro1 = """Níže vidíte, jak vypadá obrazovka v průběhu úkolu spolu s popisky jednotlivých prvků.
 Až si obrázek prohlédnete, klikněte na Pokračovat."""
@@ -85,10 +95,7 @@ Vaše odměna je na začátku 0 bodů. Za každý zatříděný obrázek získá
 
 Během úlohy můžete svoji odměnu ještě dále zvýšit, pokud budete někdy ignorovat pravidlo o zařazování dle BARVY a některé obrázky místo toho zatřídíte dle TVARU. Pokud obrázek s odměnou nabídnutou počítačovým programem zatřídíte dle TVARU, získáte pro sebe navíc počet bodů odpovídající číslu vepsanému v obrázku.
 Pokud budete chtít v takovém případě získat pro sebe body navíc a zatřídíte obrázek v rozporu s pravidlem, příspěvek na charitu se sníží o 200 bodů. {} Samozřejmě můžete nabídnutou odměnu navíc ignorovat a obrázek zatřídit k odpovídající barvě.
----------------------------------------------------------------------------------
---Závěrečné informace--
-Po absolvování všech zbývajících úloh v dnešní studii proběhne na počítači losování. Pokud budete vylosován(a), body, jež v této třídící úloze získáte pro sebe a pro charitu Člověk v tísni, se převedou na peníze kurzem 10 bodů = 1 Kč a budou vyplaceny. Šance na vylosování je 25%.
-Vaše odměna Vám bude vyplacena po skončení dnešní studie. Peníze pro charity od jednotlivých vylosovaných účastníků budou po skončení sběru dat sečteny a převedeny na bankovní účty charit.
+
 
 Poté, co si budete jisti, že instrukcím rozumíte, klikněte na Pokračovat a ukazováček, prostředníček a prsteníček položte na klávesy 1, 2 a 3 na numerické klávesnici.
 Pozor, po kliknutí na Pokračovat úloha začne po krátkém odpočtu a na zatřídění každého obrázku máte jen několik vteřin - dokud obrázek neopustí obrazovku.
@@ -111,14 +118,15 @@ class ScreenshotInstructions(InstructionsFrame):
         self.next.grid(row = 3, column = 1)
 
 
-
-DishonestyInstructions2 = (ScreenshotInstructions, {"picture": "screen1.gif",
+DishonestyInstructions2 = (InstructionsFrame, {"text": dishonestyintro2})
+DishonestyInstructions3 = (ScreenshotInstructions, {"picture": "screen1.gif",
                                                     "text": screenintro1})
-DishonestyInstructions3 = (ScreenshotInstructions, {"picture": "screen2.gif",
+DishonestyInstructions4 = (ScreenshotInstructions, {"picture": "screen2.gif",
                                                     "text": screenintro2})
-DishonestyInstructions4 = (ScreenshotInstructions, {"picture": "screen3.gif",
+DishonestyInstructions5 = (ScreenshotInstructions, {"picture": "screen3.gif",
                                                     "text": screenintro3})
-DishonestyInstructions5 = (InstructionsFrame, {"text": dishonestyrecap, "height": 32, "font": 14,
+DishonestyInstructions6 = (InstructionsFrame, {"text": dishonestyintro3, "update": ["charity"], "height": 7})
+DishonestyInstructions7 = (InstructionsFrame, {"text": dishonestyrecap, "height": 24, "font": 18,
                                                "width": 100})
 
         
@@ -126,15 +134,15 @@ DishonestyInstructions5 = (InstructionsFrame, {"text": dishonestyrecap, "height"
 
 class DishonestyInstructions(InstructionsFrame):
     def __init__(self, root):
-        super().__init__(root, text = dishonestyintro, height = 32, font = 12, width = 125)
+        super().__init__(root, text = dishonestyintro, height = 20, font = 18, width = 100)
 
         self.width = self.root.screenwidth
-        self.size = int(self.width / 35)
+        self.size = int(self.width / 18)
         self.colors = ["orange", "sky blue", "yellow"]
         self.shapes = ["triangle", "square", "circle"]
         
         self.down = Canvas(self, background = "white", highlightbackground = "white",
-                           highlightcolor = "white", width = self.width, height = 170)
+                           highlightcolor = "white", width = self.width, height = 280)
         self.down.grid(row = 3, column = 0, sticky = (E, W), columnspan = 3)
 
         self.createPots()
@@ -155,8 +163,7 @@ class DishonestyInstructions(InstructionsFrame):
                 idnum = self.down.create_rectangle((x0, y0, x2, y1), fill = color, outline = color)
             elif self.shapes[i] == "circle":
                 idnum = self.down.create_oval((x0, y0, x2, y1), fill = color, outline = color)
-            self.down.create_text((x1, y1+40), text = str(i+1), font = "helvetica 25")
-
+            self.down.create_text((x1, y1+40), text = str(i+1), font = "helvetica 35")
 
             
 
@@ -449,5 +456,7 @@ if __name__ == "__main__":
          DishonestyInstructions3,
          DishonestyInstructions4,
          DishonestyInstructions5,
+         DishonestyInstructions6,
+         DishonestyInstructions7,
          Dishonesty])
 

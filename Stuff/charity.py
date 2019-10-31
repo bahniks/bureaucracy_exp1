@@ -18,7 +18,7 @@ charities = ["Červený kříž",
              "Konto bariér"]
 
 instructions = """
-V následující úloze máte možnost získat peníze navíc pro sebe a pro charitativní organizaci dle vašeho výběru. 
+V následující úloze máte možnost získat peníze pro sebe a pro charitativní organizaci dle vašeho výběru. 
 Vyberte si prosím z následujícího seznamu organizaci, již byste chtěli podpořit:
 """
 

@@ -8,7 +8,7 @@ sys.path.append(os.path.join(os.getcwd(), "Stuff"))
 from gui import GUI
 
 from dishonesty import Dishonesty, DishonestyInstructions, DishonestyInstructions2, DishonestyInstructions3
-from dishonesty import DishonestyInstructions4, DishonestyInstructions5
+from dishonesty import DishonestyInstructions4, DishonestyInstructions5, DishonestyInstructions6, DishonestyInstructions7
 from intros import Intro, ending
 from demo import Demographics
 from comments import Comments
@@ -26,6 +26,8 @@ frames = [Intro,
           DishonestyInstructions3,
           DishonestyInstructions4,
           DishonestyInstructions5,
+          DishonestyInstructions6,
+          DishonestyInstructions7,
           Dishonesty,
           LotteryInstructions,
           Lottery,
