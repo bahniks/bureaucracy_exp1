@@ -118,7 +118,7 @@ class ScreenshotInstructions(InstructionsFrame):
         self.next.grid(row = 3, column = 1)
 
 
-DishonestyInstructions2 = (InstructionsFrame, {"text": dishonestyintro2})
+DishonestyInstructions2 = (InstructionsFrame, {"text": dishonestyintro2, "height": 23})
 DishonestyInstructions3 = (ScreenshotInstructions, {"picture": "screen1.gif",
                                                     "text": screenintro1})
 DishonestyInstructions4 = (ScreenshotInstructions, {"picture": "screen2.gif",
