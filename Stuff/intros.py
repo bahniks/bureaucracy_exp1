@@ -27,7 +27,7 @@ Nepokračujte prosím dokud vám výzkumný asistent nedá pokyn.
 
 
 endingtext = """
-{}  V loterii jste vydělali {} Kč. Za účast na studii je odměna 100 Kč. Vaše celková odměna za tuto studii je tedy {} Kč, zaokrouhleno na desítky korun nahoru získáváte {} Kč. Napište prosím tuto (zaokrouhlenou) částku společně s číslem vašeho místa – {} na papír na stole před vámi.
+{}  V loterii jste vydělali {} Kč. Za účast na studii je odměna 145 Kč. Vaše celková odměna za tuto studii je tedy {} Kč, zaokrouhleno na desítky korun nahoru získáváte {} Kč. Napište prosím tuto (zaokrouhlenou) částku společně s číslem vašeho místa – {} na papír na stole před vámi.
 
 Výsledky experimentu budou volně dostupné na stránkách PLESS a CEBEX, krátce po vyhodnocení dat a publikaci výsledků. Žádáme vás, abyste nesdělovali detaily této studie možným účastníkům, aby jejich volby a odpovědi nebyly ovlivněny a znehodnoceny.
   
@@ -51,7 +51,7 @@ class Ending(InstructionsFrame):
     
     def __call__(self, root):
         if not "won" in root.texts:
-            win = random.random() < 1/4
+            win = random.random() < 1/5
         else:
             win = root.texts["won"]
         if win:
@@ -62,7 +62,7 @@ class Ending(InstructionsFrame):
             reward = 0
             ruffle = lostending
         lottery = root.texts["lottery_win"]
-        sumReward = reward + lottery + 100
+        sumReward = reward + lottery + 145
         roundedReward = int(ceil(sumReward/10)*10)
         seat = root.texts["station"]
         text = endingtext.format(ruffle, lottery, sumReward, roundedReward, seat)
