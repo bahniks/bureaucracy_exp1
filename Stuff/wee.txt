@@ -12,7 +12,7 @@ Rodiče 35leté ženy bydlí na druhém konci republiky. Tatáž žena ztratí p
 
 Brewery
 Pivovar vlastní nejprodávanější značku světlého piva. Jaká je pravděpodobnost, že totéž pivo bude mít příští rok vyšší podíl na trhu než tento?
-Pivovar vlastní nejprodávanější značku světlého piva. Ten samý pivovar navýší rozpočet na reklamu svého světlého piva o 3%. že totéž pivo bude mít příští rok vyšší podíl na trhu než tento?
+Pivovar vlastní nejprodávanější značku světlého piva. Ten samý pivovar navýší rozpočet na reklamu svého světlého piva o 3%. Jaká je pravděpodobnost, že totéž pivo bude mít příští rok vyšší podíl na trhu než tento?
 Pivovar vlastní nejprodávanější značku světlého piva. Ten samý pivovar navýší rozpočet na reklamu svého světlého piva o 3%. Následující rok pivo zvýšilo svůj podíl na trhu. Jaká je pravděpodobnost, že zvýšení podílu piva na trhu bylo způsobeno právě zmíněným navýšením reklamního rozpočtu o 3%?
 Pivovar vlastní nejprodávanější značku světlého piva. Ten samý pivovar navýší rozpočet na reklamu svého světlého piva o 3%. Jaká je pravděpodobnost, že navýšení reklamního rozpočtu způsobí, že totéž pivo bude mít příští rok vyšší podíl na trhu než tento?
 
