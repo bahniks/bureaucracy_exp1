@@ -231,7 +231,7 @@ class Absolute(ExperimentFrame):
         self.meters = ttk.Label(self, text = "m", font = "helvetica 20", background = "white")
         self.meters.grid(row = 2, column = 2, sticky = W, pady = 10, padx = 5)
 
-        self.warning = ttk.Label(self, text = "Odpověď musí být číslo!\n(pro desetinná místa použijte tečku)", font = "helvetica 20",
+        self.warning = ttk.Label(self, text = "Odpověď musí být kladné číslo!\n(pro desetinná místa použijte tečku)", font = "helvetica 20",
                                  background = "white", foreground = "white", justify = "center", state = "disabled")
         self.warning.grid(row = 4, column = 1, columnspan = 2)
 
@@ -264,6 +264,9 @@ class Absolute(ExperimentFrame):
     def proceed(self):
         try:
             float(self.answerVar.get())
+            if float(self.answerVar.get()) < 0:
+                self.warning["foreground"] = "red"
+                return
         except:
             self.warning["foreground"] = "red"
             return
