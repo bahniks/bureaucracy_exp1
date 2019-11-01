@@ -26,10 +26,10 @@ if punishment == "end":
 else:
     size = "ztratíte {} bodů ze své odměny".format(punishment)
 
-punishmentInstructions = "V tomto případě je nicméně šance {}, že porušení pravidla bude odhaleno a vy za daný obrázek body navíc neobdržíte a kromě toho {}.".format(int(probability*100), size) if punishment != "control" else ""
+punishmentInstructions = "V tomto případě je nicméně pravděpodobnost {} %, že porušení pravidla bude odhaleno a vy za daný obrázek body navíc neobdržíte a kromě toho {}.".format(int(probability*100), size) if punishment != "control" else ""
 
 punishmentText = """Bylo zaznamenáno zatřídění podle tvaru místo podle barvy a bylo Vám strženo {} bodů.
-Pravděpodobnost zaznamenání zatřídění v rozporu s pravidly je {}%.
+Pravděpodobnost zaznamenání zatřídění v rozporu s pravidly je {} %.
 Úloha bude znovu pokračovat po odečtu.
 """.format(punishment, probability*100)
 
