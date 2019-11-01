@@ -315,6 +315,12 @@ class SlotInstructions(InstructionsFrame):
         
         self.number = random.randint(1, 999)
 
+        self.text.config(state = "normal")
+        self.text.insert("end", "\nKotouče níže například ukazují číslo {}.".format(self.number))
+        self.text.config(state = "disabled")
+
+        self.number = "{:03d}".format(self.number)
+
         for i in range(-4, 6):
             self.numbers.append((self.slot.create_text((self.slotwidth/6 + 5, 13*i*self.slotheight/30 + self.slotheight/2),
                                                        text = (int(str(self.number)[0])+i) % 10, font = "helvetica 45"), 1, (int(str(self.number)[0])+i) % 10))
@@ -323,18 +329,14 @@ class SlotInstructions(InstructionsFrame):
             self.numbers.append((self.slot.create_text((5*self.slotwidth/6 + 5, 13*i*self.slotheight/30 + self.slotheight/2),
                                                        text = (int(str(self.number)[2])+i) % 10, font = "helvetica 45"), 3, (int(str(self.number)[2])+i) % 10))
 
-        self.text.config(state = "normal")
-        self.text.insert("end", "\nKotouče níže například ukazují číslo {}.".format(self.number))
-        self.text.config(state = "disabled")
+
 
     
 
 AnchoringInstructions1 = (SlotInstructions, {"text": intro1, "height": 7, "font": 20})
 AnchoringInstructions2 = (InstructionsFrame, {"text": intro2, "height": 2, "font": 20, "width": 60})
 
-
-
-        
+      
 
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.getcwd()))
