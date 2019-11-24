@@ -67,33 +67,38 @@ for study in studies:
 with open("Time results.txt", mode = "w") as times:
     times.write("\t".join(["id", "order", "frame", "time"]))
 
-files = os.listdir()
-filecount = 0 #
-for file in files:
-    if ".py" in file or "results" in file or ".txt" not in file:
+dirs = os.listdir()
+#filecount = 0 #
+for directory in dirs:
+    if ".py" in directory or "results" in directory:
         continue
+    files = os.listdir(directory)
+    for file in files:
+        if ".py" in file or "results" in file or "file.txt" in file or ".txt" not in file:
+            continue
 
-    with open(file) as datafile:
-        filecount += 1 #
-        count = 1
-        for line in datafile:
-            study = line.strip()
-            if line.startswith("time: "):
-                with open("Time results.txt", mode = "a") as times:
-                    times.write("\n" + "\t".join([file, str(count), frames[count-1], line.split()[1]]))
-                    count += 1
-                    continue
-            if study in studies:
-                with open("{} results.txt".format(study), mode = "a") as results:
-                    for line in datafile:
-                        content = line.strip()
-                        if columns[study][0] == "id" and content: #
-                            identificator = content.split()[0] #
-                            content = content.replace(identificator, identificator + "_" + str(filecount)) #
-                        if not content:
-                            break
-                        else:
-                            results.write("\n" + content)
+        with open(os.path.join(directory, file)) as datafile:
+            #filecount += 1 #
+            count = 1
+            for line in datafile:
+                study = line.strip()
+                if line.startswith("time: "):
+                    with open("Time results.txt", mode = "a") as times:
+                        times.write("\n" + "\t".join([file, str(count), frames[count-1], line.split()[1]]))
+                        count += 1
+                        continue
+                if study in studies:
+                    with open("{} results.txt".format(study), mode = "a") as results:
+                        for line in datafile:
+                            content = line.strip()
+                            if columns[study][0] == "id" and content: #
+                                identificator = content.split()[0] #
+                                content = content.replace(identificator, identificator + "_" + directory) #
+                                #content = content.replace(identificator, identificator + "_" + str(filecount)) #
+                            if not content:
+                                break
+                            else:
+                                results.write("\n" + content)
                         
                 
 
